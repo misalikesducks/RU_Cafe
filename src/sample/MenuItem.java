@@ -12,6 +12,26 @@ public class MenuItem implements Customizable{
       this.price = price;
    }
 
+   public void setPrice(double price) {
+      this.price = price;
+   }
+
+   public void setItem(String item){
+      this.item = item;
+   }
+
+   public double getPrice(){
+      return this.price;
+   }
+
+   public String getItem(){
+      return this.item;
+   }
+
+   public double calculatePrice(){
+      return price;
+   }
+
    public boolean add(Object obj){
       return false;
    }

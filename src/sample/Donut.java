@@ -12,4 +12,14 @@ public class Donut extends MenuItem {
       super(item, price);
       this.type = type;
    }
+
+   @Override
+   public double calculatePrice(){
+      if(type.equals("yeast"))
+         return 1.39;
+      else if (type.equals("cake"))
+         return 1.59;
+      else
+         return 0.33;
+   }
 }

@@ -17,6 +17,11 @@ public class Coffee extends MenuItem implements Customizable{
    }
 
    @Override
+   public double calculatePrice(){
+      return 0.0;
+   }
+
+   @Override
    public boolean add(Object obj){
       return false;
    }
