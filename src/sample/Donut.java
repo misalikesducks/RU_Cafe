@@ -1,10 +1,10 @@
 package sample;
 
 /**
- * Donut Class repretents instances of menuItem that are specific to donuts
- * Each donut has a type and price
+ * Donut Class represents instances of menuItem that are specific to donuts
+ * Each donut has a type, price, flavour, and quantity
  */
-public class Donut extends MenuItem {
+public class Donut extends MenuItem{
    protected String type;
    protected int quantity;
    public static final double YEAST = 1.39;
@@ -19,7 +19,7 @@ public class Donut extends MenuItem {
    }
 
    @Override
-   public double calculatePrice(){
+   public double itemPrice(){
       if(type.equals("yeast"))
          return this.quantity * YEAST;
       else if (type.equals("cake"))
