@@ -2,7 +2,7 @@ package sample;
 
 import java.util.ArrayList;
 
-public class MenuItem implements Customizable{
+public class MenuItem{
    protected String item;
    protected double price;
 
@@ -28,14 +28,8 @@ public class MenuItem implements Customizable{
       return this.item;
    }
 
-   public double calculatePrice(){
-      return price;
+   public double itemPrice(){
+      return 0.0;
    }
 
-   public boolean add(Object obj){
-      return false;
-   }
-   public boolean remove(Object obj){
-      return false;
-   }
 }

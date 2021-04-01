@@ -6,7 +6,12 @@ package sample;
  */
 public class Donut extends MenuItem {
    protected String type;
+   protected int quantity;
+   public static final double YEAST = 1.39;
+   public static final double CAKE = 1.59;
+   public static final double DONUT_HOLE = 0.33;
 
+   // find a way to store the flavour of the donuts they add
 
    public Donut(String item, double price, String type) {
       super(item, price);
@@ -16,10 +21,10 @@ public class Donut extends MenuItem {
    @Override
    public double calculatePrice(){
       if(type.equals("yeast"))
-         return 1.39;
+         return this.quantity * YEAST;
       else if (type.equals("cake"))
-         return 1.59;
+         return this.quantity * CAKE;
       else
-         return 0.33;
+         return this.quantity * DONUT_HOLE;
    }
 }
