@@ -10,13 +10,13 @@ public class Order implements Customizable{
 
    public Order(ArrayList<MenuItem> items){
       this.items = items;
+      this.orderID = ID_NUMBER;
+      ID_NUMBER++;
    }
 
    public boolean add(Object obj){
       if(obj instanceof MenuItem){
          if(this.items.add((MenuItem) obj)){
-            this.orderID = ID_NUMBER;
-            ID_NUMBER++;
             return true;
          }
       }
