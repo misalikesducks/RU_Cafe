@@ -1,6 +1,4 @@
-package sample;
-
-import java.util.ArrayList;
+package Cafe;
 
 public class MenuItem{
    protected String item;

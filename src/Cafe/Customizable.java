@@ -1,4 +1,4 @@
-package sample;
+package Cafe;
 
 public interface Customizable {
    boolean add(Object obj);

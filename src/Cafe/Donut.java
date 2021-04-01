@@ -1,4 +1,4 @@
-package sample;
+package Cafe;
 
 /**
  * Donut Class represents instances of menuItem that are specific to donuts

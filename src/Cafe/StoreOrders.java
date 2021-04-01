@@ -1,4 +1,4 @@
-package sample;
+package Cafe;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class StoreOrders implements Customizable{
    }
    public boolean remove(Object obj){
       if(obj instanceof Order){
-         return this.orders.remove((Order) obj);
+         return orders.remove((Order) obj);
       }
       return false;
    }

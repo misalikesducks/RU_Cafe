@@ -1,4 +1,4 @@
-package sample;
+package Cafe;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package sample;
+package Cafe;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" prefHeight="677.0" prefWidth="681.0" vgap="10" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="677.0" prefWidth="681.0" vgap="10" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cafe.MainMenuController">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -44,16 +44,16 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <SplitPane dividerPositions="0.673469387755102" prefHeight="590.0" prefWidth="593.0" GridPane.columnIndex="7" GridPane.rowIndex="7">
+      <SplitPane dividerPositions="0.5862708719851577" prefHeight="590.0" prefWidth="593.0" GridPane.columnIndex="7" GridPane.rowIndex="7">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="535.0" prefWidth="334.0">
                <children>
-                  <Button contentDisplay="TOP" layoutX="53.0" layoutY="98.0" mnemonicParsing="false" prefHeight="160.0" prefWidth="216.0" text="Button">
+                  <Button fx:id="orderDonutButton" contentDisplay="TOP" layoutX="53.0" layoutY="98.0" mnemonicParsing="false" onAction="#loadDonut" prefHeight="160.0" prefWidth="216.0" text="Order Donuts">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
-                  <Button contentDisplay="TOP" layoutX="53.0" layoutY="304.0" mnemonicParsing="false" prefHeight="160.0" prefWidth="196.0" text="Button">
+                  <Button fx:id="orderCoffeeButton" contentDisplay="TOP" layoutX="53.0" layoutY="304.0" mnemonicParsing="false" onAction="#loadCoffee" prefHeight="160.0" prefWidth="196.0" text="Order Coffee">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -62,12 +62,12 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="535.0" prefWidth="210.0">
                <children>
-                  <Button contentDisplay="TOP" layoutX="14.0" layoutY="388.0" mnemonicParsing="false" text="Button">
+                  <Button fx:id="currentOrderButton" contentDisplay="TOP" layoutX="14.0" layoutY="388.0" mnemonicParsing="false" onAction="#loadCurrentOrder" prefHeight="95.0" prefWidth="85.0" text="Order">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
-                  <Button contentDisplay="TOP" layoutX="86.0" layoutY="388.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="62.0" text="Button">
+                  <Button fx:id="storeOrderButton" contentDisplay="TOP" layoutX="120.0" layoutY="388.0" mnemonicParsing="false" onAction="#loadStoreOrder" prefHeight="95.0" prefWidth="85.0" text="Store Order">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
