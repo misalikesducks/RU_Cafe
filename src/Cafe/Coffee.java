@@ -16,6 +16,11 @@ public class Coffee extends MenuItem implements Customizable{
    public static final double ADD_IN = 0.20;
    public static final double EMPTY = 0.0;
 
+   public Coffee(ArrayList<String> addIns){
+      super(null, 0.0);
+      this.size = null;
+      this.addIns = addIns;
+   }
    public Coffee(String item, double price, String size, ArrayList<String> addIns) {
       super(item, price);
       this.size = size;
@@ -44,22 +49,18 @@ public class Coffee extends MenuItem implements Customizable{
 
    @Override
    public boolean add(Object obj){
-      if(obj instanceof ArrayList){
-         ArrayList<String> adding = (ArrayList<String>) obj;
-         for (String adds: adding) {
-            addIns.add(adds);
-         }
+      if(obj instanceof String){
+         String adding = (String) obj;
+         addIns.add(adding);
          return true;
       }
       return false;
    }
    @Override
    public boolean remove(Object obj){
-      if(obj instanceof ArrayList){
-         ArrayList<String> removing = (ArrayList<String>) obj;
-         for(String removes:removing) {
-            addIns.remove(removes);
-         }
+      if(obj instanceof String){
+         String removes = (String) obj;
+         addIns.remove(removes);
          return true;
       }
       return false;
