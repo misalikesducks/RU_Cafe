@@ -18,6 +18,7 @@ public class MainMenuController {
          Parent root1 = (Parent) fxmlLoader.load();
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
+         stage.setTitle("Order Coffee");
          stage.show();
       }catch (Exception e){
          e.printStackTrace();
@@ -31,6 +32,7 @@ public class MainMenuController {
          Parent root1 = (Parent) fxmlLoader.load();
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
+         stage.setTitle("Order Donuts");
          stage.show();
       }catch (Exception e){
          e.printStackTrace();
@@ -44,6 +46,7 @@ public class MainMenuController {
          Parent root1 = (Parent) fxmlLoader.load();
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
+         stage.setTitle("Current Order");
          stage.show();
       }catch (Exception e){
          e.printStackTrace();
@@ -57,6 +60,7 @@ public class MainMenuController {
          Parent root1 = (Parent) fxmlLoader.load();
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
+         stage.setTitle("Store Orders");
          stage.show();
       }catch (Exception e){
          e.printStackTrace();
