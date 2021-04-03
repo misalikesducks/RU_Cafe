@@ -21,25 +21,22 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <ListView layoutX="24.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0" />
-      <ListView layoutX="377.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="flavorsListView" layoutX="24.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="addedListView" layoutX="377.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0" />
       <ComboBox fx:id="amountComboBox" layoutX="233.0" layoutY="150.0" prefHeight="27.0" prefWidth="135.0" promptText="Amount" visibleRowCount="0">
          <items>
-            <FXCollections fx:factory = "observableArrayList">
-               <String fx:value="1" />
-               <String fx:value="2" />
-               <String fx:value="3" />
-               <String fx:value="4" />
-               <String fx:value="5" />
-               <String fx:value="6" />
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Item 1" />
+               <String fx:value="Item 2" />
+               <String fx:value="Item 3" />
             </FXCollections>
          </items>
       </ComboBox>
-      <Button layoutX="283.0" layoutY="187.0" mnemonicParsing="false" text="&gt;&gt;" />
-      <Button layoutX="283.0" layoutY="221.0" mnemonicParsing="false" text="&lt;&lt;" />
+      <Button fx:id="addLeftButton" layoutX="283.0" layoutY="187.0" mnemonicParsing="false" text="&gt;&gt;" />
+      <Button fx:id="addRightButton" layoutX="283.0" layoutY="221.0" mnemonicParsing="false" text="&lt;&lt;" />
       <Label layoutX="172.0" layoutY="344.0" text="Sub-Total" />
-      <TextField layoutX="250.0" layoutY="339.0" prefHeight="27.0" prefWidth="101.0" />
-      <Button layoutX="407.0" layoutY="339.0" mnemonicParsing="false" text="Add to Order" />
+      <TextField fx:id="subTotalTextField" layoutX="250.0" layoutY="339.0" prefHeight="27.0" prefWidth="101.0" />
+      <Button fx:id="addOrderButton" layoutX="407.0" layoutY="339.0" mnemonicParsing="false" text="Add to Order" />
       <Label layoutX="225.0" layoutY="33.0" text="ORDERING DONUTS">
          <font>
             <Font size="28.0" />
