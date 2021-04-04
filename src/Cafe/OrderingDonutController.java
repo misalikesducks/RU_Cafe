@@ -15,7 +15,7 @@ public class OrderingDonutController {
     private ComboBox donutTypeComboBox, amountComboBox;
 
     @FXML
-    private ListView flavorsListView;
+    private ListView flavorsListView, addedListView;
 
     @FXML
     private TextField subTotalTextField;
@@ -65,8 +65,11 @@ public class OrderingDonutController {
             }
         } else {
             Donut newDonut = new Donut((String) donutTypeComboBox.getValue(),
-                    (String) flavorsListView.getSelectionModel().getSelectedItem(), (int) amountComboBox.getValue());
+                    (String) flavorsListView.getSelectionModel().getSelectedItem(), Integer.parseInt((String)amountComboBox.getValue()));
 
+            currDonutOrder.add(newDonut);
+
+            addedListView.getItems().add(newDonut.toString());
             displaySubtotal();
         }
     }
