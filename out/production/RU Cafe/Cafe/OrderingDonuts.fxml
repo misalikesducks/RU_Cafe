@@ -13,7 +13,7 @@
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Yeast" />
                <String fx:value="Cake" />
-               <String fx:value="Donut Holes" />
+               <String fx:value="Donut Hole" />
             </FXCollections>
          </items>
       </ComboBox>
