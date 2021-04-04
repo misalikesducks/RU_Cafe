@@ -6,6 +6,7 @@ package Cafe;
  */
 public class Donut extends MenuItem{
    protected String type;
+   protected String flavour;
    protected int quantity;
    public static final double YEAST_PRICE = 1.39;
    public static final double CAKE_PRICE = 1.59;
@@ -13,18 +14,25 @@ public class Donut extends MenuItem{
 
    // find a way to store the flavour of the donuts they add
 
-   public Donut(String item, double price, String type) {
-      super(item, price);
+   public Donut(String type, String flavour, int quantity) {
+      super(0);
       this.type = type;
+      this.flavour = flavour;
+      this.quantity = quantity;
+      this.price = itemPrice();
    }
 
    @Override
    public double itemPrice(){
-      if(type.equals("yeast"))
+      if(type.equals("Yeast"))
          return this.quantity * YEAST_PRICE;
-      else if (type.equals("cake"))
+      else if (type.equals("Cake"))
          return this.quantity * CAKE_PRICE;
       else
          return this.quantity * DONUT_HOLE_PRICE;
+   }
+
+   public String toString(){
+      return "";
    }
 }

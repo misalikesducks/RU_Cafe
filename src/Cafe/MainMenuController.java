@@ -11,6 +11,9 @@ import javax.swing.*;
 import java.sql.SQLTransactionRollbackException;
 
 public class MainMenuController {
+
+   private Order currOrder = new Order();
+
    @FXML
    void loadCoffee(ActionEvent event){
       try{

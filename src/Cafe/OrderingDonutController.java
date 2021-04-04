@@ -9,12 +9,7 @@ import java.text.DecimalFormat;
 
 public class OrderingDonutController {
 
-    private Order currOrder = new Order();
-
-    // note sure if the indexes of comboboxes start from 0 or 1
-    public static final int YEAST = 0;
-    public static final double CAKE = 1;
-    public static final double DONUT_HOLE = 2;
+    private Order currDonutOrder = new Order();
 
     @FXML
     private ComboBox donutTypeComboBox, amountComboBox;
@@ -25,8 +20,6 @@ public class OrderingDonutController {
     @FXML
     private TextField subTotalTextField;
 
-
-
     /**
      * Displays flavours for each respective donut type
      * @param event
@@ -35,15 +28,15 @@ public class OrderingDonutController {
     void showFlavours(ActionEvent event){
         flavorsListView.getItems().clear();
         // do we want different flavours for each doughnut type?
-        if(donutTypeComboBox.getSelectionModel().getSelectedIndex() == YEAST){
+        if(donutTypeComboBox.getValue().equals("Yeast")){
             flavorsListView.getItems().add("Strawberry");
             flavorsListView.getItems().add("Matcha");
             flavorsListView.getItems().add("Glazed");
-        } else if(donutTypeComboBox.getSelectionModel().getSelectedIndex() == CAKE){
+        } else if(donutTypeComboBox.getValue().equals("Cake")){
             flavorsListView.getItems().add("Chocolate");
             flavorsListView.getItems().add("Strawberry frosted");
             flavorsListView.getItems().add("Jelly");
-        } else{
+        } else if(donutTypeComboBox.getValue().equals("Donut Hole")){
             flavorsListView.getItems().add("Jelly");
             flavorsListView.getItems().add("Cinnamon");
             flavorsListView.getItems().add("Lemonade");
@@ -51,25 +44,39 @@ public class OrderingDonutController {
     }
 
     @FXML
-    void displaySubtotal(ActionEvent event){
-        subTotalTextField.appendText(convertToMoney(currOrder.getSubTotal()));
-    }
-
-    @FXML
     void addDonut(ActionEvent event){
         // handle the errors - checking if everything is correctly selected
         // add the donut by creating a new donut object
+
+        if(donutTypeComboBox.getValue().equals("Donut Type")){
+            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
+            orderIsEmptyAlert.setContentText("what flavour donut u want bro");
+            orderIsEmptyAlert.show();
+        }else {
+            Donut newDonut = new Donut((String) donutTypeComboBox.getValue(),
+                    (String) flavorsListView.getSelectionModel().getSelectedItem(), (int) amountComboBox.getValue());
+
+            displaySubtotal();
+        }
     }
 
     @FXML
     void removeDonut(ActionEvent event){
         // make sure i have something selected that i'm removing
         // remove the donut
+
+        displaySubtotal();
     }
 
     @FXML
     void addToOrder(ActionEvent event){
+        if(currDonutOrder.items.isEmpty()){ // checks if order is empty, returns fal
+            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
+            orderIsEmptyAlert.setContentText("Yo you no add any donuts wtf?");
+            orderIsEmptyAlert.show();
+        }else{ // add order to current order
 
+        }
     }
 
     // find a better spot to put this
@@ -77,5 +84,10 @@ public class OrderingDonutController {
         String pattern = "$#,##0.00";
         DecimalFormat formatMoney = new DecimalFormat(pattern);
         return formatMoney.format(number);
+    }
+
+    public void displaySubtotal(){
+        subTotalTextField.clear();
+        subTotalTextField.appendText(convertToMoney(currDonutOrder.getSubTotal()));
     }
 }
