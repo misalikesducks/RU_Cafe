@@ -48,11 +48,22 @@ public class OrderingDonutController {
         // handle the errors - checking if everything is correctly selected
         // add the donut by creating a new donut object
 
-        if(donutTypeComboBox.getValue().equals("Donut Type")){
-            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
-            orderIsEmptyAlert.setContentText("what flavour donut u want bro");
-            orderIsEmptyAlert.show();
-        }else {
+        if(donutTypeComboBox.getValue() == null || amountComboBox.getValue() == null
+        || flavorsListView.getSelectionModel().getSelectedItem() == null){
+            if(donutTypeComboBox.getValue() == null){
+                Alert noTypeAlert = new Alert(Alert.AlertType.ERROR);
+                noTypeAlert.setContentText("what type of donut u want bro");
+                noTypeAlert.show();
+            }else if(amountComboBox.getValue() == null){
+                Alert noAmountAlert = new Alert(Alert.AlertType.ERROR);
+                noAmountAlert.setContentText("how many u want");
+                noAmountAlert.show();
+            }else if(flavorsListView.getSelectionModel().getSelectedItem() == null){
+                Alert noFlavourAlert = new Alert(Alert.AlertType.ERROR);
+                noFlavourAlert.setContentText("what flavour u want");
+                noFlavourAlert.show();
+            }
+        } else {
             Donut newDonut = new Donut((String) donutTypeComboBox.getValue(),
                     (String) flavorsListView.getSelectionModel().getSelectedItem(), (int) amountComboBox.getValue());
 

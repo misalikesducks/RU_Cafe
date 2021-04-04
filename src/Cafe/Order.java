@@ -13,6 +13,7 @@ public class Order implements Customizable{
       //this.items = items; -> should be an empty arrayList at first
       this.orderID = ID_NUMBER;
       this.subTotal = 0.00;
+      items = new ArrayList<MenuItem>();
       //ID_NUMBER++;
    }
 
