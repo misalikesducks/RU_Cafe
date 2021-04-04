@@ -16,10 +16,24 @@ public class StoreOrders implements Customizable{
       }
       return false;
    }
+
    public boolean remove(Object obj){
       if(obj instanceof Order){
          return orders.remove((Order) obj);
       }
       return false;
+   }
+
+   // i don't think we need this, but we should find a place where we initialize the arraylist we're using
+   public boolean checkEmpty(){
+      return orders.isEmpty();
+   }
+
+   public String print(){
+      String allOrders = "";
+
+
+
+      return allOrders;
    }
 }

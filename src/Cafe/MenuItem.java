@@ -28,5 +28,4 @@ public class MenuItem{
    public double itemPrice(){
       return 0.0;
    }
-
 }

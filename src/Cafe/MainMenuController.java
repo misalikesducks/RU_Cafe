@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import javax.swing.*;
+import java.sql.SQLTransactionRollbackException;
 
 public class MainMenuController {
-
    @FXML
    void loadCoffee(ActionEvent event){
       try{
@@ -66,6 +66,4 @@ public class MainMenuController {
          e.printStackTrace();
       }
    }
-
-
 }
