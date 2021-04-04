@@ -17,30 +17,34 @@ public class Coffee extends MenuItem implements Customizable{
    public static final double EMPTY = 0.0;
 
    public Coffee(ArrayList<String> addIns){
-      super(null, 0.0);
+      super(0.0);
       this.size = null;
       this.addIns = addIns;
    }
-   public Coffee(String item, double price, String size, ArrayList<String> addIns) {
-      super(item, price);
+   public Coffee(double price, String size, ArrayList<String> addIns) {
+      super(price);
       this.size = size;
       this.addIns = addIns;
+   }
+
+   public void setSize(String size) {
+      this.size = size;
    }
 
    @Override
    public double itemPrice(){
       double itemPrice = EMPTY;
       switch(this.size){
-         case "short":
+         case "Short":
             itemPrice += SHORT;
             break;
-         case "tall":
+         case "Tall":
             itemPrice += TALL;
             break;
-         case "grande":
+         case "Grande":
             itemPrice += GRANDE;
             break;
-         case "venti":
+         case "Venti":
             itemPrice += VENTI;
       }
       itemPrice += addIns.size() * ADD_IN;
@@ -51,7 +55,7 @@ public class Coffee extends MenuItem implements Customizable{
    public boolean add(Object obj){
       if(obj instanceof String){
          String adding = (String) obj;
-         addIns.add(adding);
+         this.addIns.add(adding);
          return true;
       }
       return false;
@@ -61,7 +65,7 @@ public class Coffee extends MenuItem implements Customizable{
    public boolean remove(Object obj){
       if(obj instanceof String){
          String removes = (String) obj;
-         addIns.remove(removes);
+         this.addIns.remove(removes);
          return true;
       }
       return false;

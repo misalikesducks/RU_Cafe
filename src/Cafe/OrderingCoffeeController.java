@@ -13,18 +13,20 @@ import java.util.ArrayList;
 public class OrderingCoffeeController {
 
    @FXML
-   CheckBox caramelCheckbox, syrupCheckbox, milkCheckbox, creamCheckbox, whippedCheckbox;
+   protected CheckBox caramelCheckbox, syrupCheckbox, milkCheckbox, creamCheckbox, whippedCheckbox;
 
    @FXML
-   TextField priceTextfield;
+   protected TextField priceTextfield;
 
    @FXML
-   ComboBox sizeCombobox;
-   ArrayList<String> adds = new ArrayList<>();
-   Coffee currentCoffee = new Coffee("Coffee", 0.0, null, adds);
+   protected ComboBox sizeCombobox;
+   protected ArrayList<String> adds = new ArrayList<>();
+   protected Coffee currentCoffee = new Coffee(0.0, null, adds);
 
    @FXML
-   TextArea displayingTextArea;
+   protected TextArea displayingTextArea;
+
+   //MainMenuController.order.add
 
    /**
     * DOES NOT WORK : )
@@ -32,32 +34,54 @@ public class OrderingCoffeeController {
     */
    @FXML
    void getAddins(ActionEvent event){
-      if(caramelCheckbox.isSelected())
+
+      //Send an alert to select size first
+
+
+      adds = currentCoffee.addIns;
+      if(caramelCheckbox.isSelected() && !adds.contains(caramelCheckbox.getText()))
          currentCoffee.add(caramelCheckbox.getText());
-      else
+      else if(!caramelCheckbox.isSelected())
          currentCoffee.remove(caramelCheckbox.getText());
-      if(syrupCheckbox.isSelected())
+      if(syrupCheckbox.isSelected() && !adds.contains(syrupCheckbox.getText()))
          currentCoffee.add(syrupCheckbox.getText());
-      else
+      else if(!syrupCheckbox.isSelected())
          currentCoffee.remove(syrupCheckbox.getText());
-      if(milkCheckbox.isSelected())
+      if(milkCheckbox.isSelected() && !adds.contains(milkCheckbox.getText()))
          currentCoffee.add(milkCheckbox.getText());
-      else
+      else if(!milkCheckbox.isSelected())
          currentCoffee.remove(milkCheckbox.getText());
-      if(creamCheckbox.isSelected())
-         currentCoffee.add(syrupCheckbox.getText());
-      else
-         currentCoffee.remove(syrupCheckbox);
-      if(whippedCheckbox.isSelected())
+      if(creamCheckbox.isSelected() && !adds.contains(creamCheckbox.getText()))
+         currentCoffee.add(creamCheckbox.getText());
+      else if(!creamCheckbox.isSelected())
+         currentCoffee.remove(creamCheckbox.getText());
+      if(whippedCheckbox.isSelected() && !adds.contains(whippedCheckbox.getText()))
          currentCoffee.add(whippedCheckbox.getText());
-      else
+      else if(!whippedCheckbox.isSelected())
          currentCoffee.remove(whippedCheckbox.getText());
 
+      currentCoffee.setPrice(currentCoffee.itemPrice());
       priceTextfield.setText("" + currentCoffee.price);
-      displayingTextArea.appendText(currentCoffee.getItem() + "\n" + currentCoffee.getPrice());
+      displayingTextArea.appendText( "\n" + currentCoffee.getPrice());
       for (String addIn: adds) {
          displayingTextArea.appendText(addIn+"\n");
       }
+   }
+
+   @FXML
+   void selectSize(ActionEvent event){
+      if(sizeCombobox.getValue().equals("Venti")){
+         currentCoffee.setSize("Venti");
+      }else if(sizeCombobox.getValue().equals("Grande")){
+         currentCoffee.setSize("Grande");
+      }else if(sizeCombobox.getValue().equals("Tall")){
+         currentCoffee.setSize("Tall");
+      }else{
+         currentCoffee.setSize("Short");
+      }
+      currentCoffee.setPrice(currentCoffee.itemPrice());
+      priceTextfield.setText("" + currentCoffee.price);
+      displayingTextArea.appendText( "\n" + currentCoffee.getPrice());
    }
 
 
