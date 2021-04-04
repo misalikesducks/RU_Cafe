@@ -25,19 +25,7 @@ public class OrderingDonutController {
     @FXML
     private TextField subTotalTextField;
 
-    @FXML
-    /**
-     * Sets the ComboBoxes' values on the GUI
-     * Not sure if this should be moved to MainMenuController when we load in this GUI
-     */
-    void initialize(ActionEvent event){
-        donutTypeComboBox.getItems().add("Yeast");
-        donutTypeComboBox.getItems().add("Cake");
-        donutTypeComboBox.getItems().add("Donut Hole");
 
-        for(int i = 1; i <= 12; i++)
-            amountComboBox.getItems().add(i);
-    }
 
     /**
      * Displays flavours for each respective donut type
