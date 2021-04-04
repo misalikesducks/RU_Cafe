@@ -48,21 +48,18 @@ public class OrderingDonutController {
         // handle the errors - checking if everything is correctly selected
         // add the donut by creating a new donut object
 
-        if(donutTypeComboBox.getValue() == null || amountComboBox.getValue() == null
-        || flavorsListView.getSelectionModel().getSelectedItem() == null){
-            if(donutTypeComboBox.getValue() == null){
-                Alert noTypeAlert = new Alert(Alert.AlertType.ERROR);
-                noTypeAlert.setContentText("what type of donut u want bro");
-                noTypeAlert.show();
-            }else if(amountComboBox.getValue() == null){
-                Alert noAmountAlert = new Alert(Alert.AlertType.ERROR);
-                noAmountAlert.setContentText("how many u want");
-                noAmountAlert.show();
-            }else if(flavorsListView.getSelectionModel().getSelectedItem() == null){
-                Alert noFlavourAlert = new Alert(Alert.AlertType.ERROR);
-                noFlavourAlert.setContentText("what flavour u want");
-                noFlavourAlert.show();
-            }
+        if(donutTypeComboBox.getValue() == null){
+            Alert noTypeAlert = new Alert(Alert.AlertType.ERROR);
+            noTypeAlert.setContentText("No type selected.");
+            noTypeAlert.show();
+        }else if(amountComboBox.getValue() == null){
+            Alert noAmountAlert = new Alert(Alert.AlertType.ERROR);
+            noAmountAlert.setContentText("No amount selected.");
+            noAmountAlert.show();
+        }else if(flavorsListView.getSelectionModel().getSelectedItem() == null){
+            Alert noFlavourAlert = new Alert(Alert.AlertType.ERROR);
+            noFlavourAlert.setContentText("No flavour selected.");
+            noFlavourAlert.show();
         } else {
             Donut newDonut = new Donut((String) donutTypeComboBox.getValue(),
                     (String) flavorsListView.getSelectionModel().getSelectedItem(), Integer.parseInt((String)amountComboBox.getValue()));
@@ -78,15 +75,26 @@ public class OrderingDonutController {
     void removeDonut(ActionEvent event){
         // make sure i have something selected that i'm removing
         // remove the donut
+        if(currDonutOrder.items.isEmpty()) {
+            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
+            orderIsEmptyAlert.setContentText("Current order is empty.");
+            orderIsEmptyAlert.show();
+        }else if(addedListView.getSelectionModel().getSelectedItem() == null){
+            Alert noChosenAlert = new Alert(Alert.AlertType.ERROR);
+            noChosenAlert.setContentText("No donut selected to remove.");
+            noChosenAlert.show();
+        }else{
+            Donut newDonut;
+            displaySubtotal();
+        }
 
-        displaySubtotal();
     }
 
     @FXML
     void addToOrder(ActionEvent event){
         if(currDonutOrder.items.isEmpty()){ // checks if order is empty, returns fal
             Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
-            orderIsEmptyAlert.setContentText("Yo you no add any donuts wtf?");
+            orderIsEmptyAlert.setContentText("Current order is empty.");
             orderIsEmptyAlert.show();
         }else{ // add order to current order
 
