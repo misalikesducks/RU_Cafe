@@ -27,7 +27,6 @@ public class OrderingDonutController {
     @FXML
     void showFlavours(ActionEvent event){
         flavorsListView.getItems().clear();
-        // do we want different flavours for each doughnut type?
         if(donutTypeComboBox.getValue().equals("Yeast")){
             flavorsListView.getItems().add("Strawberry");
             flavorsListView.getItems().add("Matcha");
@@ -43,11 +42,12 @@ public class OrderingDonutController {
         }
     }
 
+    /**
+     * Adds donut(s) to the order, updating the sub-total of the order on the GUI
+     * @param event
+     */
     @FXML
     void addDonut(ActionEvent event){
-        // handle the errors - checking if everything is correctly selected
-        // add the donut by creating a new donut object
-
         if(donutTypeComboBox.getValue() == null){
             Alert noTypeAlert = new Alert(Alert.AlertType.ERROR);
             noTypeAlert.setContentText("No type selected.");
@@ -62,7 +62,8 @@ public class OrderingDonutController {
             noFlavourAlert.show();
         } else {
             Donut newDonut = new Donut((String) donutTypeComboBox.getValue(),
-                    (String) flavorsListView.getSelectionModel().getSelectedItem(), Integer.parseInt((String)amountComboBox.getValue()));
+                    (String) flavorsListView.getSelectionModel().getSelectedItem(),
+                    Integer.parseInt((String)amountComboBox.getValue()));
 
             currDonutOrder.add(newDonut);
 
@@ -71,10 +72,12 @@ public class OrderingDonutController {
         }
     }
 
+    /**
+     * Removes donut(s) from the order, updating the sub-total of the order on the GUI
+     * @param event
+     */
     @FXML
     void removeDonut(ActionEvent event){
-        // make sure i have something selected that i'm removing
-        // remove the donut
         if(currDonutOrder.items.isEmpty()) {
             Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
             orderIsEmptyAlert.setContentText("Current order is empty.");
@@ -91,6 +94,10 @@ public class OrderingDonutController {
         }
     }
 
+    /**
+     * Adds donuts to the current order
+     * @param event
+     */
     @FXML
     void addToOrder(ActionEvent event){
         if(currDonutOrder.items.isEmpty()){ // checks if order is empty, returns fal
@@ -102,15 +109,11 @@ public class OrderingDonutController {
         }
     }
 
-    // find a better spot to put this
-    public String convertToMoney(double number){
-        String pattern = "$#,##0.00";
-        DecimalFormat formatMoney = new DecimalFormat(pattern);
-        return formatMoney.format(number);
-    }
-
+    /**
+     * Displays the subtotal of the Donut(s) added to the order on the GUI
+     */
     public void displaySubtotal(){
         subTotalTextField.clear();
-        subTotalTextField.appendText(convertToMoney(currDonutOrder.getSubTotal()));
+        subTotalTextField.appendText(MainMenuController.convertToMoney(currDonutOrder.getSubTotal()));
     }
 }
