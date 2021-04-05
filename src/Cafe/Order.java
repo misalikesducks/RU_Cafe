@@ -6,18 +6,38 @@ public class Order implements Customizable{
    //keeps the list of menuItems
    protected int orderID;
    protected double subTotal;
+   protected double salesTax;
+   protected double total;
    protected ArrayList<MenuItem> items;
    public static int ID_NUMBER = 100001;
 
    public Order(){
       this.orderID = ID_NUMBER;
       this.subTotal = 0.00;
+      this.salesTax = 0.00;
+      this.total = 0.00;
       items = new ArrayList<MenuItem>();
       ID_NUMBER++;
    }
 
    public double getSubTotal(){
       return subTotal;
+   }
+
+   public double getSalesTax(){
+      return salesTax;
+   }
+
+   public double getTotal(){
+      return total;
+   }
+
+   public void setSalesTax(){
+      this.salesTax = subTotal * 0.06625;
+   }
+
+   public void setTotal(){
+      this.total = subTotal + salesTax;
    }
 
    public ArrayList<MenuItem> getItems(){

@@ -42,6 +42,19 @@ public class CurrentOrderController {
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
          orderIsEmptyAlert.setContentText("Current order is empty.");
          orderIsEmptyAlert.show();
+      }else if(ordersListView.getSelectionModel().getSelectedItems() == null){
+         Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
+         orderIsEmptyAlert.setContentText("No item selected to remove.");
+         orderIsEmptyAlert.show();
+      }else{
+         MainMenuController.currOrder.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
+         ordersListView.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
+
+         subtotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSubTotal()));
+         MainMenuController.currOrder.setSalesTax();
+         salesTaxTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSalesTax()));
+         MainMenuController.currOrder.setTotal();
+         totalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getTotal()));
       }
    }
 
@@ -57,9 +70,8 @@ public class CurrentOrderController {
          orderIsEmptyAlert.show();
       }else {
          MainMenuController.currStoreOrder.getOrders().add(MainMenuController.currOrder);
-
+         ordersListView.getItems().clear();
          MainMenuController.currOrder = new Order(); // makes a new Order (updates orderID)
-
       }
    }
 }

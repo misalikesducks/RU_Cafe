@@ -65,6 +65,7 @@ public class OrderingDonutController {
             Donut newDonut = new Donut((String) donutTypeComboBox.getValue(),
                     (String) flavorsListView.getSelectionModel().getSelectedItem(),
                     Integer.parseInt((String)amountComboBox.getValue()));
+            newDonut.setPrice(newDonut.itemPrice());
 
             currDonutOrder.add(newDonut);
 
