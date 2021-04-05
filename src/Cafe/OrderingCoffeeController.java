@@ -90,10 +90,18 @@ public class OrderingCoffeeController {
 
    @FXML
    void selectQuantity(ActionEvent event){
-      currentCoffee.setQuantity(Integer.parseInt(numCoffeeComboBox.getValue().toString()));
-      currentCoffee.setPrice(currentCoffee.itemPrice());
-      priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
-      displayingTextArea.appendText( currentCoffee.toString() + "\n");
+
+      if(sizeCombobox.getValue() == null){
+         Alert noSizeAlert = new Alert(Alert.AlertType.ERROR);
+         noSizeAlert.setContentText("Select the size");
+         noSizeAlert.show();
+      }else{
+         currentCoffee.setQuantity(Integer.parseInt(numCoffeeComboBox.getValue().toString()));
+         currentCoffee.setPrice(currentCoffee.itemPrice());
+         priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
+         displayingTextArea.appendText( currentCoffee.toString() + "\n");
+      }
+
    }
 
    @FXML

@@ -1,10 +1,17 @@
 package Cafe;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.PrintWriter;
 
@@ -16,7 +23,20 @@ public class StoreOrderController {
 
 
     @FXML
+    protected ListView displayOrdersListView;
+
+    @FXML
+    protected ComboBox orderNumComboBox;
+
+    @FXML
+    protected TextField orderTotalTextField;
+
+    @FXML
+    protected ObservableList<String> observableList = FXCollections.observableArrayList();
+
+    @FXML
     void getOrder(ActionEvent event){
+        displayOrdersListView.getItems().clear();
 
     }
 
