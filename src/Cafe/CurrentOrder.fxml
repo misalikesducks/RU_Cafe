@@ -7,16 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cafe.CurrentOrderController">
    <children>
       <Label alignment="CENTER_RIGHT" layoutX="326.0" layoutY="37.0" prefHeight="17.0" prefWidth="59.0" text="Sub-total" textAlignment="JUSTIFY" />
       <Label alignment="CENTER_RIGHT" layoutX="326.0" layoutY="70.0" prefHeight="17.0" prefWidth="59.0" text="Sales Tax" textAlignment="RIGHT" />
       <Label alignment="CENTER_RIGHT" layoutX="326.0" layoutY="102.0" prefHeight="17.0" prefWidth="59.0" text="total" />
-      <TextField layoutX="405.0" layoutY="32.0" />
-      <TextField layoutX="405.0" layoutY="65.0" />
-      <TextField layoutX="405.0" layoutY="97.0" />
-      <ListView layoutX="40.0" layoutY="140.0" prefHeight="197.0" prefWidth="521.0" />
+      <TextField fx:id="subtotalTextField" layoutX="405.0" layoutY="32.0" />
+      <TextField fx:id="salesTaxTextField" layoutX="405.0" layoutY="65.0" />
+      <TextField fx:id="TotalTextField" layoutX="405.0" layoutY="97.0" />
+      <ListView fx:id="ordersListView" layoutX="40.0" layoutY="140.0" prefHeight="197.0" prefWidth="521.0" />
       <Button fx:id="removeButton" layoutX="91.0" layoutY="347.0" mnemonicParsing="false" onAction="#removeSelected" prefHeight="27.0" prefWidth="117.0" text="Remove Selected" />
       <Button fx:id="placeOrderButton" layoutX="347.0" layoutY="347.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="27.0" prefWidth="117.0" text="Place Order" />
       <Label layoutX="40.0" layoutY="45.0" text="YOUR ORDER">

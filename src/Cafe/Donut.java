@@ -15,10 +15,9 @@ public class Donut extends MenuItem{
    // find a way to store the flavour of the donuts they add
 
    public Donut(String type, String flavour, int quantity) {
-      super(0);
+      super(0, quantity);
       this.type = type;
       this.flavour = flavour;
-      this.quantity = quantity;
       this.price = itemPrice();
    }
 

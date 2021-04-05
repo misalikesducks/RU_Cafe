@@ -114,6 +114,6 @@ public class OrderingDonutController {
      */
     public void displaySubtotal(){
         subTotalTextField.clear();
-        subTotalTextField.appendText(MainMenuController.convertToMoney(currDonutOrder.getSubTotal()));
+        subTotalTextField.appendText(StoreOrders.convertToMoney(currDonutOrder.getSubTotal()));
     }
 }

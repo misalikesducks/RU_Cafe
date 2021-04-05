@@ -16,13 +16,8 @@ public class Coffee extends MenuItem implements Customizable{
    public static final double ADD_IN = 0.20;
    public static final double EMPTY = 0.0;
 
-   public Coffee(ArrayList<String> addIns){
-      super(0.0);
-      this.size = null;
-      this.addIns = addIns;
-   }
-   public Coffee(double price, String size, ArrayList<String> addIns) {
-      super(price);
+   public Coffee(double price, String size, int quantity, ArrayList<String> addIns) {
+      super(price, quantity);
       this.size = size;
       this.addIns = addIns;
    }
@@ -48,6 +43,7 @@ public class Coffee extends MenuItem implements Customizable{
             itemPrice += VENTI;
       }
       itemPrice += addIns.size() * ADD_IN;
+      itemPrice *= quantity;
       return itemPrice;
    }
 

@@ -6,12 +6,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class OrderingCoffeeController {
 
-   protected Order currentCoffees = new Order();
+   protected Order currentCoffeeOrder = MainMenuController.currOrder;
 
    @FXML
    protected CheckBox caramelCheckbox, syrupCheckbox, milkCheckbox, creamCheckbox, whippedCheckbox;
@@ -22,7 +23,7 @@ public class OrderingCoffeeController {
    @FXML
    protected ComboBox sizeCombobox, numCoffeeComboBox;
    protected ArrayList<String> adds = new ArrayList<>();
-   protected Coffee currentCoffee = new Coffee(0.0, null, adds);
+   protected Coffee currentCoffee = new Coffee(0.0, null, 1, adds);
 
    @FXML
    protected TextArea displayingTextArea;
@@ -44,7 +45,6 @@ public class OrderingCoffeeController {
          noNumAlert.setContentText("Select Quantity");
          noNumAlert.show();
       }else{
-         //Send an alert to select size first
          adds = currentCoffee.addIns;
          if(caramelCheckbox.isSelected() && !adds.contains(caramelCheckbox.getText()))
             currentCoffee.add(caramelCheckbox.getText());
@@ -68,14 +68,10 @@ public class OrderingCoffeeController {
             currentCoffee.remove(whippedCheckbox.getText());
 
          currentCoffee.setPrice(currentCoffee.itemPrice());
-         priceTextfield.setText("" + currentCoffee.price);
-         displayingTextArea.appendText( "\n" + currentCoffee.getPrice());
-         for (String addIn: adds) {
-            displayingTextArea.appendText(addIn+"\n");
-         }
+         priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
+         displayingTextArea.appendText( currentCoffee.toString() + "\n");
+
       }
-
-
    }
 
    @FXML
@@ -90,9 +86,35 @@ public class OrderingCoffeeController {
          currentCoffee.setSize("Short");
       }
       currentCoffee.setPrice(currentCoffee.itemPrice());
-      priceTextfield.setText("" + currentCoffee.price);
-      displayingTextArea.appendText( "\n" + currentCoffee.getPrice());
+      priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
+      displayingTextArea.appendText( currentCoffee.toString() + "\n");
    }
+
+   @FXML
+   void selectQuantity(ActionEvent event){
+      currentCoffee.setQuantity(Integer.parseInt(numCoffeeComboBox.getValue().toString()));
+      currentCoffee.setPrice(currentCoffee.itemPrice());
+      priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
+      displayingTextArea.appendText( currentCoffee.toString() + "\n");
+   }
+
+   @FXML
+   void addCoffeeToOrder(ActionEvent event){
+      try{
+         if(currentCoffeeOrder.add(currentCoffee)){
+            Alert orderConfirm = new Alert(Alert.AlertType.ERROR);
+            orderConfirm.setContentText("Select Quantity");
+            orderConfirm.show();
+         }else{
+            throw new Exception("Could not add");
+         }
+      }catch (Exception e) {
+         Alert couldNotAddAlert = new Alert(Alert.AlertType.ERROR);
+         couldNotAddAlert.setContentText("Something went wrong here");
+         couldNotAddAlert.show();
+      }
+   }
+
 
 
 }

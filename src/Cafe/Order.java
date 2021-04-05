@@ -24,7 +24,6 @@ public class Order implements Customizable{
    public boolean add(Object obj){
       if(obj instanceof MenuItem){
          if(this.items.add((MenuItem) obj)){
-            //ID_NUMBER++;
             subTotal += ((MenuItem) obj).getPrice();
             return true;
          }
