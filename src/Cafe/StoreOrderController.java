@@ -34,6 +34,12 @@ public class StoreOrderController {
     @FXML
     protected ObservableList<String> observableList = FXCollections.observableArrayList();
 
+
+    @FXML
+    void initialize(){
+
+    }
+
     @FXML
     void getOrder(ActionEvent event){
         displayOrdersListView.getItems().clear();
