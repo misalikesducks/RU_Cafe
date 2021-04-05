@@ -66,6 +66,7 @@ public class MainMenuController {
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
          stage.setTitle("Store Orders");
+
          stage.show();
       }catch (Exception e){
          e.printStackTrace();

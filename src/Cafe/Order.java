@@ -12,6 +12,9 @@ public class Order implements Customizable{
    public static int ID_NUMBER = 100001;
    public static final double taxRate = 0.06625;
 
+   /**
+    * Default Order constructor to create an empty Order ArrayList
+    */
    public Order(){
       this.orderID = ID_NUMBER;
       this.subTotal = 0.00;

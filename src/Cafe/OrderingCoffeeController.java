@@ -100,7 +100,15 @@ public class OrderingCoffeeController {
    @FXML
    void addCoffeeToOrder(ActionEvent event){
       try{
-         if(currentCoffeeOrder.getItems().add(currentCoffee)){
+         if(sizeCombobox.getValue() == null){
+            Alert noSizeAlert = new Alert(Alert.AlertType.ERROR);
+            noSizeAlert.setContentText("Select the size");
+            noSizeAlert.show();
+         }else if(numCoffeeComboBox.getValue() == null){
+            Alert noNumAlert = new Alert(Alert.AlertType.ERROR);
+            noNumAlert.setContentText("Select Quantity");
+            noNumAlert.show();
+         }else if(currentCoffeeOrder.getItems().add(currentCoffee)){
             currentCoffeeOrder.setSubTotal();
             Alert orderConfirm = new Alert(Alert.AlertType.CONFIRMATION);
             orderConfirm.setContentText("Added to Order");

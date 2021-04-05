@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Cafe.StoreOrderController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="520.0" prefWidth="517.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cafe.StoreOrderController">
+   <children>
+      <Pane layoutX="21.0" layoutY="18.0" prefHeight="484.0" prefWidth="475.0" >
+         <children>
+            <Label layoutX="122.0" layoutY="14.0" text="STORE ORDERS">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="orderNumComboBox" layoutX="26.0" layoutY="91.0" onAction="#getOrder" prefWidth="150.0" promptText="1" />
+            <TextField fx:id="orderTotalTextField" editable="false" layoutX="291.0" layoutY="91.0" />
+            <Label layoutX="254.0" layoutY="96.0" text="Total" />
+            <ListView fx:id="displayOrdersListView" layoutX="26.0" layoutY="134.0" prefHeight="302.0" prefWidth="424.0" style="-fx-background-image: url('https://cdn.discordapp.com/attachments/655488656013918221/828713500167766107/Screen_Shot_2021-04-05_at_3.31.29_PM.png');"/>
+            <Button fx:id="cancelOrderButton" layoutX="133.0" layoutY="450.0" mnemonicParsing="false" text="Cancel Order" />
+            <Button fx:id="exportOrderButton" layoutX="299.0" layoutY="450.0" mnemonicParsing="false" onAction="#exportOrders" text="Export Orders" />
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>

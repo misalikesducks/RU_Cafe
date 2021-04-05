@@ -29,7 +29,6 @@ public class CurrentOrderController {
          observableList.add(MainMenuController.currOrder.items.get(i).toString());
       }
       ordersListView.setItems(observableList);
-      System.out.println(MainMenuController.currOrder.getSubTotal());
       subtotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSubTotal()));
       MainMenuController.currOrder.setSalesTax();
       salesTaxTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSalesTax()));

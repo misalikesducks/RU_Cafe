@@ -111,9 +111,6 @@ public class OrderingDonutController {
             for(MenuItem item : currDonutOrder.getItems()){
                 MainMenuController.currOrder.getItems().add(item);
             }
-
-            //System.out.println(currDonutOrder.print());
-
             Alert addedAlert = new Alert(Alert.AlertType.CONFIRMATION);
             addedAlert.setContentText("Donut(s) added to order.");
             addedAlert.setHeaderText("Add to order");
