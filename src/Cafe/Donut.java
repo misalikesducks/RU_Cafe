@@ -23,7 +23,7 @@ public class Donut extends MenuItem{
       super(0, quantity);
       this.type = type;
       this.flavour = flavour;
-      this.price = itemPrice();
+      this.price = this.itemPrice();
       this.quantity = quantity;
    }
 

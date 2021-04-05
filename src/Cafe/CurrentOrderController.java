@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
-
+import javafx.scene.control.TextField;
 
 /**
  * CurrentOrderController is the operational class for the JavaFX CurrentOrder GUI
@@ -18,6 +18,9 @@ public class CurrentOrderController {
    protected ListView ordersListView;
 
    @FXML
+   protected TextField subtotalTextField, salesTaxTextField, totalTextField;
+
+   @FXML
    protected ObservableList<String> observableList = FXCollections.observableArrayList();
 
    @FXML
@@ -26,6 +29,8 @@ public class CurrentOrderController {
          observableList.add(MainMenuController.currOrder.items.get(i).toString());
       }
       ordersListView.setItems(observableList);
+      System.out.println(MainMenuController.currOrder.getSubTotal());
+      subtotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSubTotal()));
    }
 
    @FXML

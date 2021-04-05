@@ -10,7 +10,7 @@ import javafx.scene.control.*;
  */
 public class OrderingDonutController {
 
-    private Order currDonutOrder = new Order();
+    protected Order currDonutOrder = new Order();
 
     @FXML
     private ComboBox donutTypeComboBox, amountComboBox;

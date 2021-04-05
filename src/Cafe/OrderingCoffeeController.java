@@ -31,7 +31,7 @@ public class OrderingCoffeeController {
    //MainMenuController.order.add
 
    /**
-    * DOES NOT WORK : )
+    *
     * @param event
     */
    @FXML
@@ -101,9 +101,9 @@ public class OrderingCoffeeController {
    @FXML
    void addCoffeeToOrder(ActionEvent event){
       try{
-         if(currentCoffeeOrder.add(currentCoffee)){
-            Alert orderConfirm = new Alert(Alert.AlertType.ERROR);
-            orderConfirm.setContentText("Select Quantity");
+         if(currentCoffeeOrder.getItems().add(currentCoffee)){
+            Alert orderConfirm = new Alert(Alert.AlertType.CONFIRMATION);
+            orderConfirm.setContentText("Added to Order");
             orderConfirm.show();
          }else{
             throw new Exception("Could not add");

@@ -31,8 +31,8 @@
                   </FXCollections>
                </items>
             </ComboBox>
-            <Button fx:id="addButton" layoutX="373.0" layoutY="287.0" mnemonicParsing="false" text="Add to Order" />
-            <TextField fx:id="priceTextfield" layoutX="342.0" layoutY="234.0" onAction="#getAddins" prefHeight="27.0" prefWidth="150.0" />
+            <Button fx:id="addButton" layoutX="373.0" layoutY="287.0" mnemonicParsing="false" onAction="#addCoffeeToOrder" text="Add to Order" />
+            <TextField fx:id="priceTextfield" editable="false" layoutX="342.0" layoutY="234.0" onAction="#getAddins" prefHeight="27.0" prefWidth="150.0" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@daf60a3c31d3f715025b0e203368bc00.jpeg" />

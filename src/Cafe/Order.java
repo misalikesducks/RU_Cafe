@@ -20,6 +20,10 @@ public class Order implements Customizable{
       ID_NUMBER++;
    }
 
+   public void setSubTotal(double subTotal){
+      this.subTotal = subTotal;
+   }
+
    public double getSubTotal(){
       return subTotal;
    }
@@ -47,7 +51,7 @@ public class Order implements Customizable{
    public boolean add(Object obj){
       if(obj instanceof MenuItem){
          if(this.items.add((MenuItem) obj)){
-            subTotal += ((MenuItem) obj).getPrice();
+            this.setSubTotal((this.subTotal += ((MenuItem) obj).getPrice()));
             return true;
          }
       }
@@ -56,7 +60,7 @@ public class Order implements Customizable{
 
    public boolean remove(Object obj){
       if(obj instanceof MenuItem){
-         subTotal -= ((MenuItem) obj).getPrice();
+         this.setSubTotal((this.subTotal -= ((MenuItem) obj).getPrice()));
          return this.items.remove((MenuItem) obj);
       }
       return false;
