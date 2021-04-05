@@ -10,18 +10,21 @@ public class Order implements Customizable{
    protected double total;
    protected ArrayList<MenuItem> items;
    public static int ID_NUMBER = 100001;
+   public static final double taxRate = 0.06625;
 
    public Order(){
       this.orderID = ID_NUMBER;
       this.subTotal = 0.00;
-      this.salesTax = 0.00;
+      this.salesTax = 0;
       this.total = 0.00;
-      items = new ArrayList<MenuItem>();
+      items = new ArrayList<>();
       ID_NUMBER++;
    }
 
-   public void setSubTotal(double subTotal){
-      this.subTotal = subTotal;
+   public void setSubTotal(){
+      for(MenuItem currentItem: items){
+         this.subTotal += currentItem.getPrice();
+      }
    }
 
    public double getSubTotal(){
@@ -37,7 +40,7 @@ public class Order implements Customizable{
    }
 
    public void setSalesTax(){
-      this.salesTax = subTotal * 0.06625;
+      this.salesTax = subTotal * taxRate;
    }
 
    public void setTotal(){
@@ -51,7 +54,6 @@ public class Order implements Customizable{
    public boolean add(Object obj){
       if(obj instanceof MenuItem){
          if(this.items.add((MenuItem) obj)){
-            this.setSubTotal((this.subTotal += ((MenuItem) obj).getPrice()));
             return true;
          }
       }
@@ -60,8 +62,7 @@ public class Order implements Customizable{
 
    public boolean remove(Object obj){
       if(obj instanceof MenuItem){
-         this.setSubTotal((this.subTotal -= ((MenuItem) obj).getPrice()));
-         return this.items.remove((MenuItem) obj);
+         return this.items.remove(obj);
       }
       return false;
    }

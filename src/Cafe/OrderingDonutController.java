@@ -68,7 +68,7 @@ public class OrderingDonutController {
             newDonut.setPrice(newDonut.itemPrice());
 
             currDonutOrder.add(newDonut);
-
+            currDonutOrder.setSubTotal();
             addedListView.getItems().add(newDonut);
             displaySubtotal();
         }
@@ -91,6 +91,7 @@ public class OrderingDonutController {
         }else{
             Donut newDonut = (Donut)addedListView.getSelectionModel().getSelectedItem();
             currDonutOrder.remove(newDonut);
+            currDonutOrder.setSubTotal();
             addedListView.getItems().remove(newDonut);
             displaySubtotal();
         }

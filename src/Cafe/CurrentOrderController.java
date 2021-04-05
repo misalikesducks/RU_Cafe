@@ -31,11 +31,14 @@ public class CurrentOrderController {
       ordersListView.setItems(observableList);
       System.out.println(MainMenuController.currOrder.getSubTotal());
       subtotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSubTotal()));
+      MainMenuController.currOrder.setSalesTax();
+      salesTaxTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSalesTax()));
+      MainMenuController.currOrder.setTotal();
+      totalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getTotal()));
    }
 
    @FXML
    void removeSelected(ActionEvent event){
-      // update subtotal
       // update sales tax
       // update total
 
@@ -53,7 +56,8 @@ public class CurrentOrderController {
          orderIsEmptyAlert.show();
       }else{
          MainMenuController.currOrder.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
-         ordersListView.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
+         observableList.remove(ordersListView.getSelectionModel().getSelectedItems());
+         ordersListView.setItems(observableList);
 
          subtotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSubTotal()));
          MainMenuController.currOrder.setSalesTax();

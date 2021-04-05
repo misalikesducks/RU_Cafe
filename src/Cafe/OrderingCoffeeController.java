@@ -66,7 +66,6 @@ public class OrderingCoffeeController {
             currentCoffee.add(whippedCheckbox.getText());
          else if(!whippedCheckbox.isSelected())
             currentCoffee.remove(whippedCheckbox.getText());
-
          currentCoffee.setPrice(currentCoffee.itemPrice());
          priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
          displayingTextArea.appendText( currentCoffee.toString() + "\n");
@@ -102,6 +101,7 @@ public class OrderingCoffeeController {
    void addCoffeeToOrder(ActionEvent event){
       try{
          if(currentCoffeeOrder.getItems().add(currentCoffee)){
+            currentCoffeeOrder.setSubTotal();
             Alert orderConfirm = new Alert(Alert.AlertType.CONFIRMATION);
             orderConfirm.setContentText("Added to Order");
             orderConfirm.show();
