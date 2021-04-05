@@ -55,7 +55,7 @@ public class CurrentOrderController {
          orderIsEmptyAlert.setContentText("No item selected to remove.");
          orderIsEmptyAlert.show();
       }else{
-         MainMenuController.currOrder.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
+         MainMenuController.currOrder.getItems().remove( ordersListView.getSelectionModel().getSelectedItems());
          observableList.remove(ordersListView.getSelectionModel().getSelectedItems());
          ordersListView.setItems(observableList);
 

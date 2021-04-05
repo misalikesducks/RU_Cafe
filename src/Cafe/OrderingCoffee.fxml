@@ -16,12 +16,12 @@
    <children>
       <Pane layoutX="24.0" layoutY="27.0" prefHeight="347.0" prefWidth="552.0">
          <children>
-            <CheckBox fx:id="caramelCheckbox" layoutX="33.0" layoutY="191.0" mnemonicParsing="false" onAction="#getAddins" text="Caramel" />
-            <CheckBox fx:id="milkCheckbox" layoutX="33.0" layoutY="230.0" mnemonicParsing="false" onAction="#getAddins" text="Milk" />
-            <CheckBox fx:id="whippedCheckbox" layoutX="33.0" layoutY="269.0" mnemonicParsing="false" onAction="#getAddins" text="Whipped Cream" />
-            <CheckBox fx:id="syrupCheckbox" layoutX="173.0" layoutY="191.0" mnemonicParsing="false" onAction="#getAddins" text="Syrup" />
-            <CheckBox fx:id="creamCheckbox" layoutX="171.0" layoutY="230.0" mnemonicParsing="false" onAction="#getAddins" text="Cream" />
-            <ComboBox fx:id="sizeCombobox" layoutX="342.0" layoutY="151.0" onAction="#selectSize" prefWidth="150.0" promptText="Select Size" visibleRowCount="5">
+            <CheckBox fx:id="caramelCheckbox" layoutX="308.0" layoutY="174.0" mnemonicParsing="false" onAction="#getAddins" text="Caramel" />
+            <CheckBox fx:id="milkCheckbox" layoutX="308.0" layoutY="213.0" mnemonicParsing="false" onAction="#getAddins" text="Milk" />
+            <CheckBox fx:id="whippedCheckbox" layoutX="308.0" layoutY="252.0" mnemonicParsing="false" onAction="#getAddins" text="Whipped Cream" />
+            <CheckBox fx:id="syrupCheckbox" layoutX="448.0" layoutY="174.0" mnemonicParsing="false" onAction="#getAddins" text="Syrup" />
+            <CheckBox fx:id="creamCheckbox" layoutX="446.0" layoutY="213.0" mnemonicParsing="false" onAction="#getAddins" text="Cream" />
+            <ComboBox fx:id="sizeCombobox" layoutX="33.0" layoutY="160.0" onAction="#selectSize" prefWidth="150.0" promptText="Select Size" visibleRowCount="5">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="Venti" />
@@ -31,15 +31,15 @@
                   </FXCollections>
                </items>
             </ComboBox>
-            <Button fx:id="addButton" layoutX="373.0" layoutY="287.0" mnemonicParsing="false" onAction="#addCoffeeToOrder" text="Add to Order" />
-            <TextField fx:id="priceTextfield" editable="false" layoutX="342.0" layoutY="234.0" onAction="#getAddins" prefHeight="27.0" prefWidth="150.0" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="addButton" layoutX="232.0" layoutY="293.0" mnemonicParsing="false" onAction="#addCoffeeToOrder" text="Add to Order" />
+            <TextField fx:id="priceTextfield" editable="false" layoutX="33.0" layoutY="256.0" onAction="#getAddins" prefHeight="27.0" prefWidth="150.0" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="339.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@daf60a3c31d3f715025b0e203368bc00.jpeg" />
                </image>
             </ImageView>
-            <TextArea fx:id="displayingTextArea" layoutX="261.0" layoutY="14.0" onDragDetected="#getAddins" prefHeight="120.0" prefWidth="270.0" />
-            <ComboBox fx:id="numCoffeeComboBox" layoutX="342.0" layoutY="195.0" onAction="#selectQuantity" prefWidth="150.0">
+            <TextArea fx:id="displayingTextArea" layoutX="14.0" layoutY="14.0" onDragDetected="#getAddins" prefHeight="120.0" prefWidth="270.0" />
+            <ComboBox fx:id="numCoffeeComboBox" layoutX="33.0" layoutY="208.0" onAction="#selectQuantity" prefWidth="150.0">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="1" />
