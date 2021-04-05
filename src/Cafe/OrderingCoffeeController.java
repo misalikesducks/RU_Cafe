@@ -69,7 +69,6 @@ public class OrderingCoffeeController {
          currentCoffee.setPrice(currentCoffee.itemPrice());
          priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
          displayingTextArea.appendText( currentCoffee.toString() + "\n");
-
       }
    }
 
@@ -122,7 +121,4 @@ public class OrderingCoffeeController {
          couldNotAddAlert.show();
       }
    }
-
-
-
 }

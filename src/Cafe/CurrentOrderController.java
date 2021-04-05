@@ -23,6 +23,9 @@ public class CurrentOrderController {
    @FXML
    protected ObservableList<String> observableList = FXCollections.observableArrayList();
 
+   /**
+    * Initializes subtotal, sales tax, and total of the current Order on the CurrentOrder GUI
+    */
    @FXML
    void initialize(){
       for(int i = 0; i < MainMenuController.currOrder.items.size(); i++){
@@ -36,15 +39,12 @@ public class CurrentOrderController {
       totalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getTotal()));
    }
 
+   /**
+    * Removes a selected MenuItem from the current Order and updates prices on the CurrentOrder GUI
+    * @param event
+    */
    @FXML
    void removeSelected(ActionEvent event){
-      // update sales tax
-      // update total
-
-      // error check if currOrder is empty or if they didn't select anything
-
-      // remove item from order
-
       if(MainMenuController.currOrder.getItems().size() == 0){
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
          orderIsEmptyAlert.setContentText("Current order is empty.");
@@ -54,7 +54,7 @@ public class CurrentOrderController {
          orderIsEmptyAlert.setContentText("No item selected to remove.");
          orderIsEmptyAlert.show();
       }else{
-         MainMenuController.currOrder.getItems().remove( ordersListView.getSelectionModel().getSelectedItems());
+         MainMenuController.currOrder.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
          observableList.remove(ordersListView.getSelectionModel().getSelectedItems());
          ordersListView.setItems(observableList);
 
@@ -66,12 +66,12 @@ public class CurrentOrderController {
       }
    }
 
+   /**
+    * Adds an Order object to the StoreOrder object ArrayList called orders
+    * @param event
+    */
    @FXML
    void placeOrder(ActionEvent event){
-      // error check if currOrder is empty
-      // add order to StoreOrder arraylist
-      // clear order? and close the window?
-
       if(MainMenuController.currOrder.getItems().size() == 0){
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
          orderIsEmptyAlert.setContentText("Current order is empty.");

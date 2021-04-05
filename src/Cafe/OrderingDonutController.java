@@ -115,6 +115,9 @@ public class OrderingDonutController {
             addedAlert.setContentText("Donut(s) added to order.");
             addedAlert.setHeaderText("Add to order");
             addedAlert.show();
+            MainMenuController.currOrder.setSubTotal();
+            subTotalTextField.clear();
+            addedListView.getItems().clear();
         }
     }
 

@@ -24,36 +24,66 @@ public class Order implements Customizable{
       ID_NUMBER++;
    }
 
+   /**
+    * Accesses the subTotal data member of an Order
+    * @return double representing sub total of an Order
+    */
+   public double getSubTotal(){
+      return subTotal;
+   }
+
+   /**
+    * Accesses the salesTax data member of an Order
+    * @return double representing sales tax of an Order
+    */
+   public double getSalesTax(){
+      return salesTax;
+   }
+
+   /**
+    * Accesses the total data member of an Order
+    * @return double representing the total of an Order
+    */
+   public double getTotal(){
+      return total;
+   }
+
+   /**
+    * Accesses the items data member of an Order
+    * @return ArrayList of MenuItem objects in an Order
+    */
+   public ArrayList<MenuItem> getItems(){
+      return items;
+   }
+
+   /**
+    * Sets the subTotal data member of an Order
+    */
    public void setSubTotal(){
       for(MenuItem currentItem: items){
          this.subTotal += currentItem.getPrice();
       }
    }
 
-   public double getSubTotal(){
-      return subTotal;
-   }
-
-   public double getSalesTax(){
-      return salesTax;
-   }
-
-   public double getTotal(){
-      return total;
-   }
-
+   /**
+    * Sets the salesTax data member of an Order
+    */
    public void setSalesTax(){
       this.salesTax = subTotal * taxRate;
    }
 
+   /**
+    * Sets the total data member of an Order
+    */
    public void setTotal(){
       this.total = subTotal + salesTax;
    }
 
-   public ArrayList<MenuItem> getItems(){
-      return items;
-   }
-
+   /**
+    *
+    * @param obj
+    * @return
+    */
    public boolean add(Object obj){
       if(obj instanceof MenuItem){
          if(this.items.add((MenuItem) obj)){

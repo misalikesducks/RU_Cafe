@@ -7,15 +7,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-import javax.swing.*;
-import java.sql.SQLTransactionRollbackException;
-import java.text.DecimalFormat;
-
+/**
+ * MainMenuController is the operational class for the JavaFX StoreOrder GUI
+ * @author Connie Chen, Tiffany Lee
+ */
 public class MainMenuController {
 
    protected static Order currOrder = new Order();
    protected static StoreOrders currStoreOrder = new StoreOrders();
 
+   /**
+    * Displays the OrderingCoffee GUI
+    * @param event
+    */
    @FXML
    void loadCoffee(ActionEvent event){
       try{
@@ -30,6 +34,10 @@ public class MainMenuController {
       }
    }
 
+   /**
+    * Displays the OrderingDonut GUI
+    * @param event
+    */
    @FXML
    void loadDonut(ActionEvent event){
       try{
@@ -44,6 +52,10 @@ public class MainMenuController {
       }
    }
 
+   /**
+    * Displays the CurrentOrder GUI
+    * @param event
+    */
    @FXML
    void loadCurrentOrder(ActionEvent event){
       try{
@@ -58,6 +70,10 @@ public class MainMenuController {
       }
    }
 
+   /**
+    * Displays the StoreOrder GUI
+    * @param event
+    */
    @FXML
    void loadStoreOrder(ActionEvent event){
       try{
