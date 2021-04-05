@@ -14,7 +14,7 @@ public class Order implements Customizable{
       this.orderID = ID_NUMBER;
       this.subTotal = 0.00;
       items = new ArrayList<MenuItem>();
-      //ID_NUMBER++;
+      ID_NUMBER++;
    }
 
    public double getSubTotal(){
@@ -24,7 +24,7 @@ public class Order implements Customizable{
    public boolean add(Object obj){
       if(obj instanceof MenuItem){
          if(this.items.add((MenuItem) obj)){
-            ID_NUMBER++;
+            //ID_NUMBER++;
             subTotal += ((MenuItem) obj).getPrice();
             return true;
          }
