@@ -34,7 +34,7 @@ public class OrderingDonutController {
             flavorsListView.getItems().add("Glazed");
         } else if(donutTypeComboBox.getValue().equals("Cake")){
             flavorsListView.getItems().add("Chocolate");
-            flavorsListView.getItems().add("Strawberry frosted");
+            flavorsListView.getItems().add("Strawberry Frosted");
             flavorsListView.getItems().add("Jelly");
         } else if(donutTypeComboBox.getValue().equals("Donut Hole")){
             flavorsListView.getItems().add("Jelly");
@@ -89,7 +89,6 @@ public class OrderingDonutController {
             addedListView.getItems().remove(newDonut);
             displaySubtotal();
         }
-
     }
 
     @FXML

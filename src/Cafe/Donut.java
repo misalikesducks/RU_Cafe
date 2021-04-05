@@ -33,6 +33,6 @@ public class Donut extends MenuItem{
    }
 
    public String toString(){
-      return type + " " + flavour + " (" + quantity + ")";
+      return flavour + " " + type + " Donut (" + quantity + ")";
    }
 }
