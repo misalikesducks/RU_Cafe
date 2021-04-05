@@ -10,7 +10,6 @@ public class Order implements Customizable{
    public static int ID_NUMBER = 100001;
 
    public Order(){
-      //this.items = items; -> should be an empty arrayList at first
       this.orderID = ID_NUMBER;
       this.subTotal = 0.00;
       items = new ArrayList<MenuItem>();
@@ -19,6 +18,10 @@ public class Order implements Customizable{
 
    public double getSubTotal(){
       return subTotal;
+   }
+
+   public ArrayList<MenuItem> getItems(){
+      return items;
    }
 
    public boolean add(Object obj){
@@ -37,5 +40,21 @@ public class Order implements Customizable{
          return this.items.remove((MenuItem) obj);
       }
       return false;
+   }
+
+   /**
+    * Returns a String of all MenuItem Objects in the items ArrayList
+    * @return String
+    */
+   public String print(){
+      String allOrders = "" + orderID + ": ";
+
+      for(int i = 0; i < items.size(); i++){
+         allOrders += items.get(i).toString();
+         if(i != items.size()-1)
+            allOrders += ", ";
+      }
+
+      return allOrders;
    }
 }

@@ -1,12 +1,15 @@
 package Cafe;
 
+/**
+ * MenuItem class is the superclass for the subclasses Donut and Coffee
+ * Stored in Order class array.
+ * @author Connie Chen, Tiffany Lee
+ */
 public class MenuItem{
-   //protected String item;
    protected double price;
    protected int quantity;
 
-   public MenuItem(double price){
-      //this.item = item;
+   public MenuItem(double price, int quantity){
       this.price = price;
       this.quantity = quantity;
    }
@@ -21,11 +24,16 @@ public class MenuItem{
       return this.price;
    }
 
-   //public String getItem(){
-   //   return this.item;
-   //}
-
    public double itemPrice(){
       return 0.0;
+   }
+
+   /**
+    * Overrides default method of toString from Java.Lang.*
+    * @return String
+    */
+   @Override
+   public String toString(){
+      return "";
    }
 }

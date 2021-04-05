@@ -13,7 +13,8 @@ import java.text.DecimalFormat;
 
 public class MainMenuController {
 
-   private Order currOrder = new Order();
+   protected static Order currOrder = new Order();
+   protected static StoreOrders currStoreOrder = new StoreOrders();
 
    @FXML
    void loadCoffee(ActionEvent event){
@@ -69,11 +70,5 @@ public class MainMenuController {
       }catch (Exception e){
          e.printStackTrace();
       }
-   }
-
-   public static String convertToMoney(double number){
-      String pattern = "$#,##0.00";
-      DecimalFormat formatMoney = new DecimalFormat(pattern);
-      return formatMoney.format(number);
    }
 }

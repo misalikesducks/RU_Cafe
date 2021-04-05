@@ -66,4 +66,19 @@ public class Coffee extends MenuItem implements Customizable{
       }
       return false;
    }
+
+   /**
+    * Overrides default method of toString from Java.Lang.*
+    * @return String
+    */
+   @Override
+   public String toString(){
+      if(addIns.size() != 0) {
+         String addInsList = "";
+         for (String addIn : addIns)
+            addInsList += ", " + addIn;
+         return size + " Coffee" + addInsList + ", (" + quantity + ")";
+      }else
+         return size + " Coffee" + " (" + quantity + ")";
+   }
 }

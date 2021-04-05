@@ -4,9 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import javax.swing.*;
-import java.text.DecimalFormat;
-
+/**
+ * OrderingDonutController is the operational class for the JavaFX OrderDonuts GUI
+ * @author Connie Chen, Tiffany Lee
+ */
 public class OrderingDonutController {
 
     private Order currDonutOrder = new Order();
@@ -105,7 +106,16 @@ public class OrderingDonutController {
             orderIsEmptyAlert.setContentText("Current order is empty.");
             orderIsEmptyAlert.show();
         }else{ // add order to current order
+            for(MenuItem item : currDonutOrder.getItems()){
+                MainMenuController.currOrder.getItems().add(item);
+            }
 
+            //System.out.println(currDonutOrder.print());
+
+            Alert addedAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            addedAlert.setContentText("Donut(s) added to order.");
+            addedAlert.setHeaderText("Add to order");
+            addedAlert.show();
         }
     }
 
