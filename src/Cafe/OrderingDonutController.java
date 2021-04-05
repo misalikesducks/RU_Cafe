@@ -66,7 +66,7 @@ public class OrderingDonutController {
 
             currDonutOrder.add(newDonut);
 
-            addedListView.getItems().add(newDonut.toString());
+            addedListView.getItems().add(newDonut);
             displaySubtotal();
         }
     }
@@ -84,7 +84,9 @@ public class OrderingDonutController {
             noChosenAlert.setContentText("No donut selected to remove.");
             noChosenAlert.show();
         }else{
-            Donut newDonut;
+            Donut newDonut = (Donut)addedListView.getSelectionModel().getSelectedItem();
+            currDonutOrder.remove(newDonut);
+            addedListView.getItems().remove(newDonut);
             displaySubtotal();
         }
 
