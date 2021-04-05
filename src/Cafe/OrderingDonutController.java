@@ -34,7 +34,7 @@ public class OrderingDonutController {
             flavorsListView.getItems().add("Glazed");
         } else if(donutTypeComboBox.getValue().equals("Cake")){
             flavorsListView.getItems().add("Chocolate");
-            flavorsListView.getItems().add("Strawberry frosted");
+            flavorsListView.getItems().add("Strawberry Frosted");
             flavorsListView.getItems().add("Jelly");
         } else if(donutTypeComboBox.getValue().equals("Donut Hole")){
             flavorsListView.getItems().add("Jelly");
@@ -66,7 +66,7 @@ public class OrderingDonutController {
 
             currDonutOrder.add(newDonut);
 
-            addedListView.getItems().add(newDonut.toString());
+            addedListView.getItems().add(newDonut);
             displaySubtotal();
         }
     }
@@ -84,10 +84,11 @@ public class OrderingDonutController {
             noChosenAlert.setContentText("No donut selected to remove.");
             noChosenAlert.show();
         }else{
-            Donut newDonut;
+            Donut newDonut = (Donut)addedListView.getSelectionModel().getSelectedItem();
+            currDonutOrder.remove(newDonut);
+            addedListView.getItems().remove(newDonut);
             displaySubtotal();
         }
-
     }
 
     @FXML
