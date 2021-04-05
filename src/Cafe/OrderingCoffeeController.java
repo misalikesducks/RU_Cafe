@@ -5,14 +5,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * OrderingCoffeeController is the operational class for the JavaFX OrderingCoffee GUI
+ * @author Connie Chen, Tiffany Lee
+ */
 public class OrderingCoffeeController {
-
    protected Order currentCoffeeOrder = MainMenuController.currOrder;
+   protected ArrayList<String> adds = new ArrayList<>();
+   protected Coffee currentCoffee = new Coffee(0.0, null, 1, adds);
 
    @FXML
    protected CheckBox caramelCheckbox, syrupCheckbox, milkCheckbox, creamCheckbox, whippedCheckbox;
@@ -22,13 +24,9 @@ public class OrderingCoffeeController {
 
    @FXML
    protected ComboBox sizeCombobox, numCoffeeComboBox;
-   protected ArrayList<String> adds = new ArrayList<>();
-   protected Coffee currentCoffee = new Coffee(0.0, null, 1, adds);
 
    @FXML
    protected TextArea displayingTextArea;
-
-   //MainMenuController.order.add
 
    /**
     *
@@ -72,6 +70,10 @@ public class OrderingCoffeeController {
       }
    }
 
+   /**
+    *
+    * @param event
+    */
    @FXML
    void selectSize(ActionEvent event){
       if(sizeCombobox.getValue().equals("Venti")){
@@ -88,6 +90,10 @@ public class OrderingCoffeeController {
       displayingTextArea.appendText( currentCoffee.toString() + "\n");
    }
 
+   /**
+    *
+    * @param event
+    */
    @FXML
    void selectQuantity(ActionEvent event){
 
@@ -104,6 +110,10 @@ public class OrderingCoffeeController {
 
    }
 
+   /**
+    *
+    * @param event
+    */
    @FXML
    void addCoffeeToOrder(ActionEvent event){
       try{

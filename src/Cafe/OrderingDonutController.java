@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 /**
- * OrderingDonutController is the operational class for the JavaFX OrderDonuts GUI
+ * OrderingDonutController is the operational class for the JavaFX OrderingDonuts GUI
  * @author Connie Chen, Tiffany Lee
  */
 public class OrderingDonutController {

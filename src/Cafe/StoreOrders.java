@@ -3,18 +3,33 @@ package Cafe;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * StoreOrder representing a list of all Order objects
+ * @author Connie Chen, Tiffany Lee
+ */
 public class StoreOrders implements Customizable{
-   // keeps the list of orders
    protected ArrayList<Order> orders;
 
+   /**
+    * Default Order constructor to create an empty Order ArrayList
+    */
    public StoreOrders(){
       this.orders = new ArrayList<Order>();
    }
 
+   /**
+    * Accesses the orders data member of a StoreOrder
+    * @return ArrayList of Order objects
+    */
    public ArrayList<Order> getOrders(){
       return orders;
    }
 
+   /**
+    * Inserts an Order Object in the orders ArrayList
+    * @param obj to be added to the orders Arraylist of StoreOrder
+    * @return true if the obj was added, false otherwise
+    */
    public boolean add(Object obj){
       if(obj instanceof Order){
          return orders.add((Order) obj);
@@ -22,6 +37,11 @@ public class StoreOrders implements Customizable{
       return false;
    }
 
+   /**
+    * Removes the given Order object from the orders ArrayList
+    * @param obj to be removed
+    * @return true if the obj was removed, false otherwise
+    */
    public boolean remove(Object obj){
       if(obj instanceof Order){
          return orders.remove((Order) obj);
@@ -44,7 +64,7 @@ public class StoreOrders implements Customizable{
    }
 
    /**
-    * Converts a Double object into formatted Object that represents currency
+    * Converts a double into a formatted Object that represents currency
     * @param number to be converted to money
     * @return String representing the amount in currency format
     */

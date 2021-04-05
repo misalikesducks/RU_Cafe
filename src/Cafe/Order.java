@@ -2,6 +2,10 @@ package Cafe;
 
 import java.util.ArrayList;
 
+/**
+ * Order class representing a list of all MenuItem objects
+ * @author Connie Chen, Tiffany Lee
+ */
 public class Order implements Customizable{
    //keeps the list of menuItems
    protected int orderID;
@@ -13,7 +17,7 @@ public class Order implements Customizable{
    public static final double taxRate = 0.06625;
 
    /**
-    * Default Order constructor to create an empty Order ArrayList
+    * Default Order constructor to create an empty MenuItem ArrayList
     */
    public Order(){
       this.orderID = ID_NUMBER;
@@ -80,9 +84,9 @@ public class Order implements Customizable{
    }
 
    /**
-    *
-    * @param obj
-    * @return
+    * Inserts a MenuItem Object in the items ArrayList
+    * @param obj to be added to the items Arraylist of Order
+    * @return true if the obj was added, false otherwise
     */
    public boolean add(Object obj){
       if(obj instanceof MenuItem){
@@ -93,6 +97,11 @@ public class Order implements Customizable{
       return false;
    }
 
+   /**
+    * Removes the given MenuItem object from the items ArrayList
+    * @param obj to be removed
+    * @return true if the obj was removed, false otherwise
+    */
    public boolean remove(Object obj){
       if(obj instanceof MenuItem){
          return this.items.remove(obj);
