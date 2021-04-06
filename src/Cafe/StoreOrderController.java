@@ -66,15 +66,9 @@ public class StoreOrderController {
                 displayOrdersListView.setItems(observableList);
                 orderTotalTextField.setText(StoreOrders.convertToMoney(orderToDisplay.getTotal()));
             }else
-                throw new Exception("Value not exist");
+                throw new Exception("Value does not exist");
         }catch (Exception e){
-            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
-            orderIsEmptyAlert.setContentText("There are no more store orders");
-            orderIsEmptyAlert.show();
         }
-
-
-
     }
 
     /**
@@ -104,6 +98,9 @@ public class StoreOrderController {
             orderNumComboBox.getItems().remove("" + orderToRemoveID);
             observableList.clear();
             orderTotalTextField.clear();
+            orderNumComboBox.setEditable(true);
+            orderNumComboBox.setPromptText("Order");
+            orderNumComboBox.setEditable(false);
         }
     }
 

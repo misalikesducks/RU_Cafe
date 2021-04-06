@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cafe.OrderingCoffeeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightsteelblue;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cafe.OrderingCoffeeController">
    <children>
       <Pane layoutX="24.0" layoutY="27.0" prefHeight="347.0" prefWidth="552.0">
          <children>

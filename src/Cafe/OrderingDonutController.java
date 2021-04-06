@@ -3,6 +3,7 @@ package Cafe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 /**
  * OrderingDonutController is the operational class for the JavaFX OrderingDonuts GUI
@@ -120,6 +121,9 @@ public class OrderingDonutController {
             MainMenuController.currOrder.setSubTotal();
             subTotalTextField.clear();
             addedListView.getItems().clear();
+
+            Stage stage = (Stage) addedListView.getScene().getWindow();
+            stage.close();
         }
     }
 

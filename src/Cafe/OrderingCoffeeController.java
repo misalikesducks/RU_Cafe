@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.util.ArrayList;
+import javafx.stage.Stage;
 
 /**
  * OrderingCoffeeController is the operational class for the JavaFX OrderingCoffee GUI
@@ -29,7 +30,7 @@ public class OrderingCoffeeController {
    protected TextArea displayingTextArea;
 
    /**
-    * adds the user-selected coffee add-in options to the arrayList
+    * Adds the user-selected coffee add-in options to the arrayList
     * @param event
     */
    @FXML
@@ -71,7 +72,7 @@ public class OrderingCoffeeController {
    }
 
    /**
-    * assigns the current coffee size to the one the user selected
+    * Assigns the current coffee size to the one the user selected
     * @param event
     */
    @FXML
@@ -91,7 +92,7 @@ public class OrderingCoffeeController {
    }
 
    /**
-    * assigns the quantity of coffee to user selection
+    * Assigns the quantity of coffee to user selection
     * @param event
     */
    @FXML
@@ -128,6 +129,9 @@ public class OrderingCoffeeController {
             Alert orderConfirm = new Alert(Alert.AlertType.CONFIRMATION);
             orderConfirm.setContentText("Added to Order");
             orderConfirm.show();
+
+            Stage stage = (Stage) sizeCombobox.getScene().getWindow();
+            stage.close();
          }else{
             throw new Exception("Could not add");
          }
