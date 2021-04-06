@@ -28,6 +28,7 @@ public class MainMenuController {
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
          stage.setTitle("Order Coffee");
+         stage.setResizable(false);
          stage.show();
       }catch (Exception e){
          e.printStackTrace();
@@ -46,6 +47,7 @@ public class MainMenuController {
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
          stage.setTitle("Order Donuts");
+         stage.setResizable(false);
          stage.show();
       }catch (Exception e){
          e.printStackTrace();
@@ -64,6 +66,7 @@ public class MainMenuController {
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
          stage.setTitle("Current Order");
+         stage.setResizable(false);
          stage.show();
       }catch (Exception e){
          e.printStackTrace();
@@ -82,7 +85,7 @@ public class MainMenuController {
          Stage stage = new Stage();
          stage.setScene(new Scene(root1));
          stage.setTitle("Store Orders");
-
+         stage.setResizable(false);
          stage.show();
       }catch (Exception e){
          e.printStackTrace();

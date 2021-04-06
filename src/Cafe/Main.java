@@ -13,7 +13,8 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
             primaryStage.setTitle("RU Cafe");
-            primaryStage.setScene(new Scene(root, 677, 681));
+            primaryStage.setScene(new Scene(root, 570, 548));
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch(Exception e) {
             e.printStackTrace();

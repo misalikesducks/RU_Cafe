@@ -29,9 +29,10 @@ public class CurrentOrderController {
    @FXML
    void initialize(){
       for(int i = 0; i < MainMenuController.currOrder.items.size(); i++){
-         observableList.add(MainMenuController.currOrder.items.get(i).toString());
+         observableList.add(MainMenuController.currOrder.items.get(i));
       }
       ordersListView.setItems(observableList);
+
       subtotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSubTotal()));
       MainMenuController.currOrder.setSalesTax();
       salesTaxTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSalesTax()));
@@ -54,6 +55,8 @@ public class CurrentOrderController {
          orderIsEmptyAlert.setContentText("No item selected to remove.");
          orderIsEmptyAlert.show();
       }else{
+         System.out.println(ordersListView.getSelectionModel().getSelectedItems().toString());
+
          MainMenuController.currOrder.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
          observableList.remove(ordersListView.getSelectionModel().getSelectedItems());
          ordersListView.setItems(observableList);
@@ -79,7 +82,13 @@ public class CurrentOrderController {
       }else {
          MainMenuController.currStoreOrder.getOrders().add(MainMenuController.currOrder);
          ordersListView.getItems().clear();
+         subtotalTextField.clear();
+         salesTaxTextField.clear();
+         totalTextField.clear();
          MainMenuController.currOrder = new Order(); // makes a new Order (updates orderID)
+         Alert orderIsEmptyAlert = new Alert(Alert.AlertType.CONFIRMATION);
+         orderIsEmptyAlert.setContentText("Order has been placed.");
+         orderIsEmptyAlert.show();
       }
    }
 }

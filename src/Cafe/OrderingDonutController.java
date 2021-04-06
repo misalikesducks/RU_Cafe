@@ -90,6 +90,7 @@ public class OrderingDonutController {
             noChosenAlert.show();
         }else{
             Donut newDonut = (Donut)addedListView.getSelectionModel().getSelectedItem();
+            System.out.println(addedListView.getSelectionModel().getSelectedItem().toString());
             currDonutOrder.remove(newDonut);
             currDonutOrder.setSubTotal();
             addedListView.getItems().remove(newDonut);
@@ -110,6 +111,7 @@ public class OrderingDonutController {
         }else{ // add order to current order
             for(MenuItem item : currDonutOrder.getItems()){
                 MainMenuController.currOrder.getItems().add(item);
+                //System.out.println();
             }
             Alert addedAlert = new Alert(Alert.AlertType.CONFIRMATION);
             addedAlert.setContentText("Donut(s) added to order.");

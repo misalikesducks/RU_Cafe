@@ -104,7 +104,7 @@ public class Coffee extends MenuItem implements Customizable{
          String addInsList = "";
          for (String addIn : addIns)
             addInsList += ", " + addIn;
-         return size + " Coffee" + addInsList + ", (" + quantity + ")";
+         return size + " Coffee" + addInsList + " (" + quantity + ")";
       }else
          return size + " Coffee" + " (" + quantity + ")";
    }

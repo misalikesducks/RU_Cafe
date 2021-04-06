@@ -40,7 +40,7 @@
       <Button fx:id="addButton" layoutX="283.0" layoutY="187.0" mnemonicParsing="false" onAction="#addDonut" text="&gt;&gt;" />
       <Button fx:id="removeButton" layoutX="283.0" layoutY="221.0" mnemonicParsing="false" onAction="#removeDonut" text="&lt;&lt;" />
       <Label layoutX="172.0" layoutY="344.0" text="Sub-Total" />
-      <TextField fx:id="subTotalTextField" layoutX="250.0" layoutY="339.0" prefHeight="27.0" prefWidth="101.0" />
+      <TextField fx:id="subTotalTextField" editable="false" layoutX="250.0" layoutY="339.0" prefHeight="27.0" prefWidth="101.0" />
       <Button fx:id="addOrderButton" layoutX="407.0" layoutY="339.0" mnemonicParsing="false" onAction="#addToOrder" text="Add to Order" />
       <Label layoutX="225.0" layoutY="33.0" text="ORDERING DONUTS">
          <font>

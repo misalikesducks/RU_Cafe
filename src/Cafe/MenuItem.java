@@ -18,7 +18,9 @@ public class MenuItem{
       this.price = price;
    }
 
-   public void setQuantity(int quantity){this.quantity = quantity;}
+   public void setQuantity(int quantity) {
+      this.quantity = quantity;
+   }
 
    public double getPrice(){
       return this.price;
