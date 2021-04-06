@@ -40,10 +40,20 @@ public class StoreOrderController {
 
     }
 
+    /**
+     * Event handler for orderNumComboBox
+     * Changes displayOrdersListView depending on which order the user has selected
+     * @param event
+     */
     @FXML
     void getOrder(ActionEvent event){
         displayOrdersListView.getItems().clear();
-
+        observableList.clear();
+        int orderToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
+        for(int i = 0; i < MainMenuController.currStoreOrder.getOrders().get(orderToDisplay - 1).getItems().size(); i++){
+            observableList.add(MainMenuController.currStoreOrder.getOrders().get(orderToDisplay - 1).getItems().get(i));
+        }
+        displayOrdersListView.setItems(observableList);
     }
 
     /**
