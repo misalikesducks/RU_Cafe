@@ -91,6 +91,7 @@ public class CurrentOrderController {
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.CONFIRMATION);
          orderIsEmptyAlert.setContentText("Order has been placed.");
          orderIsEmptyAlert.show();
+         
       }
    }
 }
