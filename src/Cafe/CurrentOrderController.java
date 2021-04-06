@@ -21,7 +21,7 @@ public class CurrentOrderController {
    protected TextField subtotalTextField, salesTaxTextField, totalTextField;
 
    @FXML
-   protected ObservableList<String> observableList = FXCollections.observableArrayList();
+   protected ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
 
    /**
     * Initializes subtotal, sales tax, and total of the current Order on the CurrentOrder GUI
