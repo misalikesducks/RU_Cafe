@@ -32,12 +32,17 @@ public class StoreOrderController {
     protected TextField orderTotalTextField;
 
     @FXML
-    protected ObservableList<String> observableList = FXCollections.observableArrayList();
+    protected ObservableList<MenuItem> observableList = FXCollections.observableArrayList();
 
-
+    /**
+     * Initializes the orderNumComboBox with number of orders currently placed
+     */
     @FXML
     void initialize(){
-
+        int numOrders = MainMenuController.currStoreOrder.getOrders().size();
+        for(int i = 1; i <= numOrders; i++){
+            orderNumComboBox.getItems().add(i);
+        }
     }
 
     /**

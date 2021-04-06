@@ -64,6 +64,7 @@ public class Order implements Customizable{
     * Sets the subTotal data member of an Order
     */
    public void setSubTotal(){
+      this.subTotal = 0;
       for(MenuItem currentItem: items){
          this.subTotal += currentItem.getPrice();
       }

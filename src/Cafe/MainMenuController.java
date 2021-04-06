@@ -67,6 +67,7 @@ public class MainMenuController {
          stage.setScene(new Scene(root1));
          stage.setTitle("Current Order");
          stage.setResizable(false);
+
          stage.show();
       }catch (Exception e){
          e.printStackTrace();

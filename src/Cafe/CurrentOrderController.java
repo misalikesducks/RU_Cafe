@@ -55,12 +55,12 @@ public class CurrentOrderController {
          orderIsEmptyAlert.setContentText("No item selected to remove.");
          orderIsEmptyAlert.show();
       }else{
-         System.out.println(ordersListView.getSelectionModel().getSelectedItems().toString());
-
-         MainMenuController.currOrder.getItems().remove(ordersListView.getSelectionModel().getSelectedItems());
-         observableList.remove(ordersListView.getSelectionModel().getSelectedItems());
+         int selectedIndex = ordersListView.getSelectionModel().getSelectedIndex();
+         MainMenuController.currOrder.getItems().remove(selectedIndex);
+         observableList.remove(selectedIndex);
          ordersListView.setItems(observableList);
 
+         MainMenuController.currOrder.setSubTotal();
          subtotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSubTotal()));
          MainMenuController.currOrder.setSalesTax();
          salesTaxTextField.setText(StoreOrders.convertToMoney(MainMenuController.currOrder.getSalesTax()));
