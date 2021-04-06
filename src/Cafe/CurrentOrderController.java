@@ -5,8 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * CurrentOrderController is the operational class for the JavaFX CurrentOrder GUI
@@ -16,6 +18,9 @@ public class CurrentOrderController {
 
    @FXML
    protected ListView ordersListView;
+
+   @FXML
+   protected Button placeOrderButton;
 
    @FXML
    protected TextField subtotalTextField, salesTaxTextField, totalTextField;
@@ -91,7 +96,8 @@ public class CurrentOrderController {
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.CONFIRMATION);
          orderIsEmptyAlert.setContentText("Order has been placed.");
          orderIsEmptyAlert.show();
-         
+         Stage stage = (Stage) placeOrderButton.getScene().getWindow();
+         stage.close();
       }
    }
 }
