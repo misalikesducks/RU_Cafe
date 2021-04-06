@@ -41,7 +41,7 @@ public class StoreOrderController {
     @FXML
     void initialize(){
         for(Order order: MainMenuController.currStoreOrder.getOrders()){
-            orderNumComboBox.getItems().addAll(order.getOrderID());
+            orderNumComboBox.getItems().addAll("" + order.getOrderID());
         }
     }
 
@@ -54,14 +54,15 @@ public class StoreOrderController {
     void getOrder(ActionEvent event){
         displayOrdersListView.getItems().clear();
         observableList.clear();
-        int orderToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
-        for(int i = 0; i < MainMenuController.currStoreOrder.findOrder(orderToDisplay).getItems().size(); i++){
-            observableList.add(MainMenuController.currStoreOrder.getOrders().get(orderToDisplay).getItems().get(i));
-        }
-        displayOrdersListView.setItems(observableList);
+        int orderIDToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
+        Order orderToDisplay = MainMenuController.currStoreOrder.findOrder(orderIDToDisplay);
 
-        orderTotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currStoreOrder
-                                    .findOrder(orderToDisplay).getTotal()));
+        for(MenuItem item : orderToDisplay.getItems()){
+            observableList.add(item);
+        }
+
+        displayOrdersListView.setItems(observableList);
+        orderTotalTextField.setText(StoreOrders.convertToMoney(orderToDisplay.getTotal()));
     }
 
     /**
@@ -75,7 +76,7 @@ public class StoreOrderController {
             Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
             orderIsEmptyAlert.setContentText("There are no store orders to remove.");
             orderIsEmptyAlert.show();
-        }else if(orderNumComboBox.getValue().toString().equals("Order")) {
+        }else if(orderNumComboBox.getValue() == null) {
             Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
             orderIsEmptyAlert.setContentText("Order to remove has not be selected.");
             orderIsEmptyAlert.show();
@@ -88,9 +89,9 @@ public class StoreOrderController {
             Alert orderCancelledAlert = new Alert(Alert.AlertType.CONFIRMATION);
             orderCancelledAlert.setContentText("Order has been cancelled.");
             orderCancelledAlert.show();
-            orderCancelledAlert.show();
             orderNumComboBox.getItems().remove("" + orderToRemoveID);
             observableList.clear();
+            orderTotalTextField.clear();
         }
     }
 
