@@ -81,11 +81,13 @@ public class CurrentOrderController {
          orderIsEmptyAlert.show();
       }else {
          MainMenuController.currStoreOrder.getOrders().add(MainMenuController.currOrder);
+         Order.incrementIDNumber();
          ordersListView.getItems().clear();
          subtotalTextField.clear();
          salesTaxTextField.clear();
          totalTextField.clear();
          MainMenuController.currOrder = new Order(); // makes a new Order (updates orderID)
+
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.CONFIRMATION);
          orderIsEmptyAlert.setContentText("Order has been placed.");
          orderIsEmptyAlert.show();

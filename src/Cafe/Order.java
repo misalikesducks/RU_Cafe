@@ -13,7 +13,7 @@ public class Order implements Customizable{
    protected double salesTax;
    protected double total;
    protected ArrayList<MenuItem> items;
-   public static int ID_NUMBER = 100001;
+   protected static int ID_NUMBER = 1;
    public static final double taxRate = 0.06625;
 
    /**
@@ -25,6 +25,21 @@ public class Order implements Customizable{
       this.salesTax = 0;
       this.total = 0.00;
       items = new ArrayList<>();
+   }
+
+   /**
+    * Accesses the orderID data member of an Order
+    * @return int representing orderID of an Order
+    */
+   public int getOrderID(){
+      return this.orderID;
+   }
+
+   /**
+    * Increments the ID_NUMBER data member of an Order
+    */
+   public static void incrementIDNumber(){
+      ID_NUMBER++;
    }
 
    /**

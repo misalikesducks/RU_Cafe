@@ -20,7 +20,8 @@ import java.io.PrintWriter;
  * @author Connie Chen, Tiffany Lee
  */
 public class StoreOrderController {
-
+    public static final int STARTING_ORDER_NUMBER = 1;
+    public int numRemoved = 0;
 
     @FXML
     protected ListView displayOrdersListView;
@@ -54,10 +55,13 @@ public class StoreOrderController {
         displayOrdersListView.getItems().clear();
         observableList.clear();
         int orderToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
-        for(int i = 0; i < MainMenuController.currStoreOrder.getOrders().get(orderToDisplay - 1).getItems().size(); i++){
-            observableList.add(MainMenuController.currStoreOrder.getOrders().get(orderToDisplay - 1).getItems().get(i));
+        for(int i = 0; i < MainMenuController.currStoreOrder.findOrder(orderToDisplay).getItems().size(); i++){
+            observableList.add(MainMenuController.currStoreOrder.getOrders().get(orderToDisplay).getItems().get(i));
         }
         displayOrdersListView.setItems(observableList);
+
+        orderTotalTextField.setText(StoreOrders.convertToMoney(MainMenuController.currStoreOrder
+                                    .findOrder(orderToDisplay).getTotal()));
     }
 
     /**
