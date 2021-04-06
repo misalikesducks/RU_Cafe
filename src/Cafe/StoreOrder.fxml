@@ -21,7 +21,7 @@
             <ComboBox fx:id="orderNumComboBox" layoutX="26.0" layoutY="91.0" onAction="#getOrder" prefWidth="150.0" promptText="Order" />
             <TextField fx:id="orderTotalTextField" editable="false" layoutX="291.0" layoutY="91.0" />
             <Label layoutX="254.0" layoutY="96.0" text="Total" />
-            <ListView fx:id="displayOrdersListView" layoutX="26.0" layoutY="136.0" prefHeight="302.0" prefWidth="424.0" style="-fx-background-image: url('https://cdn.discordapp.com/attachments/655488656013918221/828716029147873360/Screen_Shot_2021-04-05_at_3.41.33_PM.png');" />
+            <ListView fx:id="displayOrdersListView" layoutX="26.0" layoutY="136.0" prefHeight="302.0" prefWidth="424.0" />
             <Button fx:id="cancelOrderButton" layoutX="85.0" layoutY="450.0" mnemonicParsing="false" onAction="#cancelOrder" text="Cancel Order" />
             <Button fx:id="exportOrderButton" layoutX="291.0" layoutY="450.0" mnemonicParsing="false" onAction="#exportOrders" text="Export Orders" />
          </children>

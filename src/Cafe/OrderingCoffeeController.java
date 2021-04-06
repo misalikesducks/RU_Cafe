@@ -29,7 +29,7 @@ public class OrderingCoffeeController {
    protected TextArea displayingTextArea;
 
    /**
-    *
+    * adds the user-selected coffee add-in options to the arrayList
     * @param event
     */
    @FXML
@@ -71,7 +71,7 @@ public class OrderingCoffeeController {
    }
 
    /**
-    *
+    * assigns the current coffee size to the one the user selected
     * @param event
     */
    @FXML
@@ -91,7 +91,7 @@ public class OrderingCoffeeController {
    }
 
    /**
-    *
+    * assigns the quantity of coffee to user selection
     * @param event
     */
    @FXML
@@ -109,7 +109,7 @@ public class OrderingCoffeeController {
    }
 
    /**
-    *
+    * Adds coffee item to the order list
     * @param event
     */
    @FXML

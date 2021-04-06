@@ -54,15 +54,27 @@ public class StoreOrderController {
     void getOrder(ActionEvent event){
         displayOrdersListView.getItems().clear();
         observableList.clear();
-        int orderIDToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
-        Order orderToDisplay = MainMenuController.currStoreOrder.findOrder(orderIDToDisplay);
+        int orderIDToDisplay = 0;
+        try{
+            if(orderNumComboBox.getValue() != null){
+                orderIDToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
+                Order orderToDisplay = MainMenuController.currStoreOrder.findOrder(orderIDToDisplay);
 
-        for(MenuItem item : orderToDisplay.getItems()){
-            observableList.add(item);
+                for(MenuItem item : orderToDisplay.getItems()){
+                    observableList.add(item);
+                }
+                displayOrdersListView.setItems(observableList);
+                orderTotalTextField.setText(StoreOrders.convertToMoney(orderToDisplay.getTotal()));
+            }else
+                throw new Exception("Value not exist");
+        }catch (Exception e){
+            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
+            orderIsEmptyAlert.setContentText("There are no more store orders");
+            orderIsEmptyAlert.show();
         }
 
-        displayOrdersListView.setItems(observableList);
-        orderTotalTextField.setText(StoreOrders.convertToMoney(orderToDisplay.getTotal()));
+
+
     }
 
     /**

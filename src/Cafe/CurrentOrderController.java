@@ -50,7 +50,7 @@ public class CurrentOrderController {
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
          orderIsEmptyAlert.setContentText("Current order is empty.");
          orderIsEmptyAlert.show();
-      }else if(ordersListView.getSelectionModel().getSelectedItems() == null){
+      }else if(ordersListView.getSelectionModel().getSelectedIndex() == -1){
          Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
          orderIsEmptyAlert.setContentText("No item selected to remove.");
          orderIsEmptyAlert.show();
