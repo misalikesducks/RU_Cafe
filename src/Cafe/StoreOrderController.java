@@ -10,8 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.io.PrintWriter;
 
@@ -20,9 +18,6 @@ import java.io.PrintWriter;
  * @author Connie Chen, Tiffany Lee
  */
 public class StoreOrderController {
-    public static final int STARTING_ORDER_NUMBER = 1;
-    public int numRemoved = 0;
-
     @FXML
     protected ListView displayOrdersListView;
 
@@ -52,23 +47,7 @@ public class StoreOrderController {
      */
     @FXML
     void getOrder(ActionEvent event){
-        displayOrdersListView.getItems().clear();
-        observableList.clear();
-        int orderIDToDisplay = 0;
-        try{
-            if(orderNumComboBox.getValue() != null){
-                orderIDToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
-                Order orderToDisplay = MainMenuController.currStoreOrder.findOrder(orderIDToDisplay);
-
-                for(MenuItem item : orderToDisplay.getItems()){
-                    observableList.add(item);
-                }
-                displayOrdersListView.setItems(observableList);
-                orderTotalTextField.setText(StoreOrders.convertToMoney(orderToDisplay.getTotal()));
-            }else
-                throw new Exception("Value does not exist");
-        }catch (Exception e){
-        }
+        displayOrder();
     }
 
     /**
@@ -98,9 +77,8 @@ public class StoreOrderController {
             orderNumComboBox.getItems().remove("" + orderToRemoveID);
             observableList.clear();
             orderTotalTextField.clear();
-            orderNumComboBox.setEditable(true);
-            orderNumComboBox.setPromptText("Order");
-            orderNumComboBox.setEditable(false);
+
+            displayOrder();
         }
     }
 
@@ -143,6 +121,29 @@ public class StoreOrderController {
             Alert addedAlert = new Alert(Alert.AlertType.ERROR);
             addedAlert.setContentText("There are currently no store orders.");
             addedAlert.show();
+        }
+    }
+
+    /**
+     * Displays the currently selected order from the orderNumComboBox in the displayOrdersListView
+     */
+    void displayOrder(){
+        displayOrdersListView.getItems().clear();
+        observableList.clear();
+        int orderIDToDisplay = 0;
+        try{
+            if(orderNumComboBox.getValue() != null){
+                orderIDToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
+                Order orderToDisplay = MainMenuController.currStoreOrder.findOrder(orderIDToDisplay);
+
+                for(MenuItem item : orderToDisplay.getItems()){
+                    observableList.add(item);
+                }
+                displayOrdersListView.setItems(observableList);
+                orderTotalTextField.setText(StoreOrders.convertToMoney(orderToDisplay.getTotal()));
+            }else
+                throw new Exception("Value does not exist");
+        }catch (Exception e){
         }
     }
 }
