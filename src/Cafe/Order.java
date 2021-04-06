@@ -25,7 +25,6 @@ public class Order implements Customizable{
       this.salesTax = 0;
       this.total = 0.00;
       items = new ArrayList<>();
-      ID_NUMBER++;
    }
 
    /**

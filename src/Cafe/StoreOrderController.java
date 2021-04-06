@@ -39,9 +39,8 @@ public class StoreOrderController {
      */
     @FXML
     void initialize(){
-        int numOrders = MainMenuController.currStoreOrder.getOrders().size();
-        for(int i = 1; i <= numOrders; i++){
-            orderNumComboBox.getItems().add(i);
+        for(Order order: MainMenuController.currStoreOrder.getOrders()){
+            orderNumComboBox.getItems().addAll(order.getOrderID());
         }
     }
 
@@ -59,6 +58,36 @@ public class StoreOrderController {
             observableList.add(MainMenuController.currStoreOrder.getOrders().get(orderToDisplay - 1).getItems().get(i));
         }
         displayOrdersListView.setItems(observableList);
+    }
+
+    /**
+     * Event handler for Cancel Order button
+     * Cancels a selected order by removing it from the StoreOrder object ArrayList orders
+     * @param event
+     */
+    @FXML
+    void cancelOrder(ActionEvent event){
+        if(MainMenuController.currStoreOrder.getOrders().size() == 0){
+            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
+            orderIsEmptyAlert.setContentText("There are no store orders to remove.");
+            orderIsEmptyAlert.show();
+        }else if(orderNumComboBox.getValue().toString().equals("Order")) {
+            Alert orderIsEmptyAlert = new Alert(Alert.AlertType.ERROR);
+            orderIsEmptyAlert.setContentText("Order to remove has not be selected.");
+            orderIsEmptyAlert.show();
+        }else{
+            int orderToRemoveID = Integer.parseInt(orderNumComboBox.getValue().toString());
+            Order orderToRemove = MainMenuController.currStoreOrder.findOrder(orderToRemoveID);
+
+            MainMenuController.currStoreOrder.getOrders().remove(orderToRemove);
+
+            Alert orderCancelledAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            orderCancelledAlert.setContentText("Order has been cancelled.");
+            orderCancelledAlert.show();
+            orderCancelledAlert.show();
+            orderNumComboBox.getItems().remove("" + orderToRemoveID);
+            observableList.clear();
+        }
     }
 
     /**

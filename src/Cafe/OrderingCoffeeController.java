@@ -96,7 +96,6 @@ public class OrderingCoffeeController {
     */
    @FXML
    void selectQuantity(ActionEvent event){
-
       if(sizeCombobox.getValue() == null){
          Alert noSizeAlert = new Alert(Alert.AlertType.ERROR);
          noSizeAlert.setContentText("Select the size");
@@ -107,7 +106,6 @@ public class OrderingCoffeeController {
          priceTextfield.setText("" + StoreOrders.convertToMoney(currentCoffee.getPrice()));
          displayingTextArea.appendText( currentCoffee.toString() + "\n");
       }
-
    }
 
    /**

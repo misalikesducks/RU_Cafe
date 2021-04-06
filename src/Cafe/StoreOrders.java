@@ -64,6 +64,19 @@ public class StoreOrders implements Customizable{
    }
 
    /**
+    * Returns an Order object given an orderID
+    * @param ID of Order to be found
+    * @return Order
+    */
+   public Order findOrder(int ID){
+      for(int i = 0; i < orders.size(); i++){
+         if(orders.get(i).orderID == ID)
+            return orders.get(i);
+      }
+      return null;
+   }
+
+   /**
     * Converts a double into a formatted Object that represents currency
     * @param number to be converted to money
     * @return String representing the amount in currency format
