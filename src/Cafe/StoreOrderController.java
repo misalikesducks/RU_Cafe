@@ -130,10 +130,9 @@ public class StoreOrderController {
     void displayOrder(){
         displayOrdersListView.getItems().clear();
         observableList.clear();
-        int orderIDToDisplay = 0;
         try{
             if(orderNumComboBox.getValue() != null){
-                orderIDToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
+                int orderIDToDisplay = Integer.parseInt(orderNumComboBox.getValue().toString());
                 Order orderToDisplay = MainMenuController.currStoreOrder.findOrder(orderIDToDisplay);
 
                 for(MenuItem item : orderToDisplay.getItems()){
@@ -142,7 +141,7 @@ public class StoreOrderController {
                 displayOrdersListView.setItems(observableList);
                 orderTotalTextField.setText(StoreOrders.convertToMoney(orderToDisplay.getTotal()));
             }else
-                throw new Exception("Value does not exist");
+                throw new Exception("Value does not exist.");
         }catch (Exception e){
         }
     }
